@@ -1,0 +1,147 @@
+
+%% Formato para la presentaci\'on de  proyectos de grado. 
+%% Maestría en Ingeniería de Software
+%% Pontificia Universidad Javeriana
+%% Elaborado por Angela Villota y Luisa Rincón
+%% Inspirado en Formato elaborado para carrera de Ing de Sistemas
+%% V 1.0 Abril - 2022
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{letterpaper}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{cite}
+\usepackage{titling}
+\usepackage{setspace}
+\usepackage{graphicx}
+\graphicspath{{img/}} %ruta de la carpeta en donde estaràn las imágenes
+\usepackage{blindtext}
+% \usepackage{url}
+\usepackage{hyperref}
+\usepackage{natbib} %% para citaciones
+\usepackage[format=hang,font=small,labelfont=bf]{caption}
+
+% *** ALIGNMENT PACKAGES ***
+%
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{pdflscape}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{dblfloatfix}
+\usepackage{subfig}
+\usepackage{todonotes}
+\usepackage{ulem}
+\usepackage{xcolor,colortbl}
+
+\onehalfspacing
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{2}
+
+\usepackage{xcolor}
+\definecolor{light-gray}{gray}{0.95}
+\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+
+\begin{document}
+%crear titulo
+%\maketitle
+
+%%%%%%%%%%%%%%%%%
+% Portada del Anteproyecto
+%%%%%%%%%%%%%%%%%
+\input{src/00-titulo}
+\newpage
+%%%%%%%%%%%%%%%%%
+% Presentacion Anteproyecto
+%%%%%%%%%%%%%%%%%
+%\input{src/00-presentacion}
+%\newpage
+%%%%%%%%%%%%%%%%%
+% Ficha resumen
+%%%%%%%%%%%%%%%%%
+\input{src/00-resumen}
+\newpage
+
+%%%%%%%%%%%%%%%%%
+% Resumen / abstract
+%%%%%%%%%%%%%%%%%
+\input{src/0-abstract} 
+\newpage
+
+%%%%%%%%%%%%%%%%%
+% Indices y tablas
+%%%%%%%%%%%%%%%%%
+\pagenumbering{arabic}
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+
+%%%%%%%%%%%%%%%%%
+% Introducción
+%%%%%%%%%%%%%%%%%
+\input{src/1-introduccion} 
+\newpage
+
+%% Problema
+\input{src/2-problema}
+\newpage
+
+%% Objetivos
+\input{src/3-objetivos}
+\newpage
+
+%% Alcance
+\input{src/4-alcance}
+\newpage
+
+%% Justificacion
+\input{src/5-justificacion}
+\newpage
+
+%% Marco conceptual
+\input{src/6-marco}
+\newpage
+
+%% Metodología
+\input{src/7-metodologia}
+\newpage
+
+%% Recursos
+\input{src/8-recursos}
+\newpage
+
+%% Cronograma
+\input{src/9-cronograma}
+\newpage
+
+%% Resultados
+\input{src/10-resultados}
+\newpage
+
+\input{src/11-resultados}
+\newpage
+
+\input{src/12-resultados}
+\newpage
+
+\section{Referencias Bibliográficas}
+%Se deben presentar de forma rigurosa y completa las referencias bibliográficas utilizadas en el documento (No incluir bibliografía no referenciada en el documento). Se debe seguir una sola norma de referenciación en todo el documento, ej. IEEE, Harvard o APA.
+
+%Utilizar en lo posible bibliografía reciente de fuentes confiables y en inglés(libros, artículos científicos, etc.). Evitar utilizar fuentes no confiables como blogs, Wikipedia, o documentos sin autor.
+%\bibliographystyle{IEEEtran}
+\bibliographystyle{apalike}
+\bibliography{bibfile}
+\newpage
+
+%% Glosario de terminos
+\input{src/13-glosario}
+\newpage
+
+\end{document}
