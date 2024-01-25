@@ -24,19 +24,19 @@ Por esta razón, se estableció dos carpetas de información donde una de ellas 
 
 En este sentido, se desarrollaron algoritmos de extracción de características, como por ejemplo el histograma de colores, descriptores de texturas y las características basadas en formas, con las cuales se representa la información relevante de las imágenes dentro del cultivo, para que estas características se conviertan en entradas de reconocimiento en el modelo Machine Learning.
 
-El siguiente código en Python está diseñado para la visualización de imágenes de cultivos de aguacate Hass, clasificadas en dos categorías: "Con Plaga" y "Sin Plaga". Este programa, destinado a ser ejecutado en un entorno de Jupyter Notebook, utiliza las bibliotecas Matplotlib y OpenCV. Su función principal es cargar y mostrar de manera detallada las dos tipologías definidas en las carpetas con imágenes de cada categoría, permitiendo una inspección visual clara de las características distintivas entre los cultivos afectados por plagas y aquellos que se consideran saludables.
+El siguiente código en Python está diseñado para la visualización de imágenes de cultivos de aguacate Hass, clasificadas en dos categorías: ``Con Plaga'' y ``Sin Plaga''. Este programa, destinado a ser ejecutado en un entorno de Jupyter Notebook, utiliza las bibliotecas Matplotlib y OpenCV. Su función principal es cargar y mostrar de manera detallada las dos tipologías definidas en las carpetas con imágenes de cada categoría, permitiendo una inspección visual clara de las características distintivas entre los cultivos afectados por plagas y aquellos que se consideran saludables.
 
 \newpage
 
 \begin{figure}[h]
 \centering
-\caption{código de extracción de características}
+\caption{Código de extracción de características}
 \includegraphics[width=1\textwidth]{resultados/codCaracteristicas.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
 \label{fig:figuraCodCaracteristicas}
 \end{figure}
 
-Este código estructurado simplifica la tarea de analizar visualmente las imágenes, proporcionando una representación clara de las dos clasificaciones, "Con Plaga" y "Sin Plaga", en el cultivo de aguacate Hass. Este código  generó una distribución de las imágenes por categoría para definir proporcionalmente cuántas imágenes se tenía de plaga y cuántas se tenían sin plaga.
+Este código estructurado simplifica la tarea de analizar visualmente las imágenes, proporcionando una representación clara de las dos clasificaciones, ``Con Plaga'' y ``Sin Plaga'', en el cultivo de aguacate Hass. Este código generó una distribución de las imágenes por categoría para definir proporcionalmente cuántas imágenes se tenía de plaga y cuántas se tenían sin plaga.
 
 Al realizar un análisis exploratorio de datos para comprender la distribución y características de las imágenes se puede señalar que, las imágenes sin plagas corresponden al 6,72\% y las imágenes con plagas el 93,28\% como se describe a continuación:
 
@@ -56,13 +56,13 @@ Se puede decir que las imágenes que generan mayor información corresponden a l
 
 \begin{figure}[h]
 \centering
-\caption{código imágenes por categoría y distribución de tamaño}
+\caption{Código imágenes por categoría y distribución de tamaño}
 \includegraphics[width=1\textwidth]{resultados/codImagenes.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
 \label{fig:figuraCodImagenes}
 \end{figure}
 
-Este es el código correspondió para generar tanto la distribución de imágenes por categoría como la distribución por tamaños. 
+Este es el código correspondiente para generar tanto la distribución de imágenes por categoría como la distribución por tamaños. 
 Por otro lado, se generó un código para saber cómo está distribuido por cada alto y ancho de las imágenes. Como se puede ver en la imagen que el 87,6\% de las imágenes presentan una resolución de 4.000 píxeles por ancho y por el lado de las alturas más del 87,6\% tienen 3000 píxeles de alto.
 
 \newpage
@@ -187,7 +187,7 @@ Para \cite{schmidhuber2015deep}, la capacidad del Deep Learning para adaptarse a
 \centering
 \caption{Acción del algoritmo Yolo V8}
 \includegraphics[width=1\textwidth]{resultados/yoloV8.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
+\caption*{\footnotesize Fuente: \cite{decoder2023}}
 \label{fig:figuraYoloV8}
 \end{figure}
 
@@ -275,7 +275,7 @@ Para el desarrollo de los scripts que implementan el modelo Yolo V8 se realizaro
     \item Se obtienen los resultados arrojados por el algoritmo (predicciones y sensibilidades - recall).
 \end{enumerate}
 
-El concepto de "épocas" se refiere a la cantidad de veces que todo el conjunto de datos se ha pasado hacia adelante y hacia atrás a través de la red neuronal durante el proceso de entrenamiento. Cada época representa una iteración completa a través de todo el conjunto de datos.
+El concepto de ``épocas'' se refiere a la cantidad de veces que todo el conjunto de datos se ha pasado hacia adelante y hacia atrás a través de la red neuronal durante el proceso de entrenamiento. Cada época representa una iteración completa a través de todo el conjunto de datos.
 Manejar múltiples épocas durante el entrenamiento puede tener varios beneficios:
 
 \textbf{Aprendizaje más Profundo:}
@@ -333,7 +333,7 @@ Estos parámetros de la cooredanada X y Y del polígono en formato Yolo, se posi
 
 Después de realizar la transformación, el procedimiento implica identificar y organizar la información (ver figura \ref{fig:figuraPoligonoCocoAYolo}) de la siguiente manera:
 \begin{itemize}
-    \item La primera columna especifica la clase a utilizar, en este caso, "plaga" \footnote{La acción matemática es descrita en \cite{rehman2022conversion} especificando los procedimientos para el cambio de Coco a Yolo.}. 
+    \item La primera columna especifica la clase a utilizar, en este caso, ``plaga'' \footnote{La acción matemática es descrita en \cite{rehman2022conversion} especificando los procedimientos para el cambio de Coco a Yolo.}. 
     \item La segunda y tercera columna indican las coordenadas del punto medio de un cuadro delimitador, correspondiente a la posición central del objeto a identificar, en este caso, la plaga. 
     \item La cuarta y quinta columna contienen las dimensiones del cuadro delimitador, representando respectivamente el ancho y alto del objeto en cuestión. Para clarificar. la cuarta columna representa el ancho, mientras que la quinta columna refleja el alto. Este proceso se aplica para facilitar la identificación y delimitación de la plaga.
 \end{itemize}
@@ -348,7 +348,7 @@ Después de realizar la transformación, el procedimiento implica identificar y 
 
 \newpage
 
-Este proceso corresponde a la conversión del formato Coco a Yolo. En otras palabras, se especifica una clase, en este caso, "plaga" designada como cero. Los dos primeros valores indican las coordenadas del punto medio del cuadro que se va a delimitar, mientras que los dos valores restantes representan el alto y el ancho de la imagen en cuestión. Este código pertenece al modelo Yolo V8, donde se lleva a cabo la distribución de las imágenes en las dos particiones correspondientes de entrenamiento y validación.
+Este proceso corresponde a la conversión del formato Coco a Yolo. En otras palabras, se especifica una clase, en este caso, ``plaga'' designada como cero. Los dos primeros valores indican las coordenadas del punto medio del cuadro que se va a delimitar, mientras que los dos valores restantes representan el alto y el ancho de la imagen en cuestión. Este código pertenece al modelo Yolo V8, donde se lleva a cabo la distribución de las imágenes en las dos particiones correspondientes de entrenamiento y validación.
 
 
 \subsubsection{Implementación del modelo Yolo}
@@ -438,7 +438,7 @@ Después de realizar la evaluación, observamos que la sensibilidad (recall) alc
 
 \newpage
 
-Es importante destacar que la evaluación se llevó a cabo con imágenes que tenian y carecían de plagas, es decir, imágenes consideradas como "sanas". Además, es relevante señalar que la matriz de confusión se generó de manera automática, proporcionando una representación visual detallada de los resultados de la evaluación.
+Es importante destacar que la evaluación se llevó a cabo con imágenes que tenian y carecían de plagas, es decir, imágenes consideradas como ``sanas''. Además, es relevante señalar que la matriz de confusión se generó de manera automática, proporcionando una representación visual detallada de los resultados de la evaluación.
 
 Yolo genera imágenes y proporciona métricas clave como precisión, recall y curvas de aprendizaje por época. Al analizar las estadísticas por época, se observa una progresión significativa en la precisión a lo largo del entrenamiento. En las primeras épocas, la precisión fue baja, alcanzando solo el 14.1\% en la primera y el 2\% en la segunda. Sin embargo, a partir de la tercera época, se observa un aumento marcado, llegando al 66\% en la época 6 y alcanzando un impresionante 95\% en la época 7. Las épocas 8, 9 y 10 mantienen rendimientos destacados, con la época 9 mostrando una precisión aún mayor que la 10 (ver figura \ref{fig:figuraEjeProMatrizConfusion}).
 

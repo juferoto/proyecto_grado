@@ -12,7 +12,7 @@ Dentro del un flujo de trabajo con MLOps que incluya la integración continua, e
     \textbf{Nivel} & \textbf{Descripción} & \textbf{Características} & \textbf{Tecnología} \\
     \hline
     \endhead
-        0 & Sin MLOps & \begin{itemize}\item Difícil gestionar el ciclo de vida completo del modelo de aprendizaje automático. \item Los equipos son dispares y las liberaciones son difíciles. \item La mayoría de los sistemas existen como "cajas negras", poca retroalimentación durante o después de la implementación.\end{itemize} & \begin{itemize}\item Construcciones e implementaciones manuales. \item Prueba manual de modelo y aplicación. \item Sin seguimiento centralizado del rendimiento del modelo. \item El entrenamiento del modelo es manual.\end{itemize} \\
+        0 & Sin MLOps & \begin{itemize}\item Difícil gestionar el ciclo de vida completo del modelo de aprendizaje automático. \item Los equipos son dispares y las liberaciones son difíciles. \item La mayoría de los sistemas existen como ``cajas negras'', poca retroalimentación durante o después de la implementación.\end{itemize} & \begin{itemize}\item Construcciones e implementaciones manuales. \item Prueba manual de modelo y aplicación. \item Sin seguimiento centralizado del rendimiento del modelo. \item El entrenamiento del modelo es manual.\end{itemize} \\
         \hline
         1 & DevOps pero sin MLOps & \begin{itemize}\item Los despliegues son menos difíciles que el nivel 0, pero dependen del equipo de datos para cada modelo nuevo. \item Comentarios aún limitados sobre qué tan bien se desempeña un modelo en producción. \item Difícil rastrear/reproducir resultados.\end{itemize} & \begin{itemize}\item Construcciones automatizadas. \item Pruebas automatizadas para el código de la aplicación.\end{itemize} \\
         \hline
@@ -127,7 +127,7 @@ En cuanto al proceso, no se limita únicamente a probar el código; también imp
 
 Entre las diversas herramientas disponibles para el MLOps, se pueden clasificar en dos categorías distintas: las sencillas y las complejas. Las herramientas sencillas son particularmente útiles para facilitar el despliegue local, es decir, en un mismo ordenador o un servidor local. Este enfoque es especialmente adecuado para pequeñas empresas o equipos pequeños de investigación, donde varios miembros de un equipo de trabajo pueden acceder desde diferentes computadoras de manera local. Estas herramientas sencillas representan el primer paso para llevar la solución a la fase de despliegue, especialmente en entornos de producción. \newline
 
-Por otro lado, las herramientas complejas están diseñadas para gestionar mayores capacidades de cómputo. Estas pueden configurarse con capacidades específicas, e incluso el sistema puede autoajustarse según el tráfico y los requisitos de almacenamiento, incorporando la funcionalidad conocida como "On Demand", donde son capaces de autoescalar según las necesidades del momento. \newline
+Por otro lado, las herramientas complejas están diseñadas para gestionar mayores capacidades de cómputo. Estas pueden configurarse con capacidades específicas, e incluso el sistema puede autoajustarse según el tráfico y los requisitos de almacenamiento, incorporando la funcionalidad conocida como ``On Demand'', donde son capaces de autoescalar según las necesidades del momento. \newline
 
 \newpage
 
@@ -263,7 +263,7 @@ Después de haber identificado las herramientas utilizadas para implementar MLOp
 \label{fig:figuraEstructuraCarpetas}
 \end{figure}
 
-La estructura de carpetas utilizada es esencial para comprender la lógica detrás de la implementación. Uno de los componentes de esta estructura es el "workflows", que almacena los archivos con extensiones Yaml y actúa como la base de las tareas automatizadas. Este punto será abordado de manera más detallada en el objetivo 4. Este enfoque en la organización y el propósito de las carpetas proporciona una visión clara de la implementación subyacente.
+La estructura de carpetas utilizada es esencial para comprender la lógica detrás de la implementación. Uno de los componentes de esta estructura es el ``workflows'', que almacena los archivos con extensiones Yaml y actúa como la base de las tareas automatizadas. Este punto será abordado de manera más detallada en el objetivo 4. Este enfoque en la organización y el propósito de las carpetas proporciona una visión clara de la implementación subyacente.
 
 \newpage
 
@@ -287,9 +287,9 @@ pip install -r dev-requirements.txt
 
 Cuando se clona el proyecto, se obtienen todos los archivos y carpetas en la ubicación local deseada. Una vez completada la clonación, se puede acceder a la estructura completa del proyecto. Este proyecto ha sido diseñado considerando todas las dependencias necesarias para su ejecución. \newline
 
-En cuanto a la estructura de carpetas, se destaca la carpeta "models", que desempeña un papel crucial en el almacenamiento del modelo entrenado. En este contexto, el modelo de regresión logística, se almacena en formato “joblib”, una dependencia de Python diseñada para guardar modelos de Machine Learning de manera eficiente, que facilita su obtención y reproducibilidad. \newline
+En cuanto a la estructura de carpetas, se destaca la carpeta ``models'', que desempeña un papel crucial en el almacenamiento del modelo entrenado. En este contexto, el modelo de regresión logística, se almacena en formato “joblib”, una dependencia de Python diseñada para guardar modelos de Machine Learning de manera eficiente, que facilita su obtención y reproducibilidad. \newline
 
-Adicionalmente, se tiene la carpeta "notebooks", la cual contiene los códigos asociados del modelo de regresión logística mencionado anteriormente en formato jpynb de Jupyter Notebook. En este sentido, los mismos códigos utilizados para el objetivo dos del proyecto se encuentran aquí, lo que facilita la revisión y comprensión de las implementaciones.
+Adicionalmente, se tiene la carpeta ``notebooks'', la cual contiene los códigos asociados del modelo de regresión logística mencionado anteriormente en formato jpynb de Jupyter Notebook. En este sentido, los mismos códigos utilizados para el objetivo dos del proyecto se encuentran aquí, lo que facilita la revisión y comprensión de las implementaciones.
 
 
 \begin{figure}[h]
@@ -302,7 +302,7 @@ Adicionalmente, se tiene la carpeta "notebooks", la cual contiene los códigos a
 
 \newpage
 
-Cabe resaltar que estos códigos no solo representan lo realizado del modelo de regresión logística, sino que también abarcan los procedimientos aplicados en la implementación del modelo Yolo V8. La inclusión de ambas implementaciones se encuentra en la carpeta "notebooks" ofreciendo una visión completa y organizada de las soluciones realizadas, permitiendo una fácil referencia y reproducción de los procesos aplicados. \newline
+Cabe resaltar que estos códigos no solo representan lo realizado del modelo de regresión logística, sino que también abarcan los procedimientos aplicados en la implementación del modelo Yolo V8. La inclusión de ambas implementaciones se encuentra en la carpeta ``notebooks'' ofreciendo una visión completa y organizada de las soluciones realizadas, permitiendo una fácil referencia y reproducción de los procesos aplicados. \newline
 
 En pos de simplificar y preservar la integridad de las configuraciones durante el entrenamiento o evaluación de un modelo, se implementó una estrategia que evita la manipulación directa de los valores dentro del código. Para lograr esto, se incorporó una dependencia adicional llamada Hydra, la cual facilita la gestión de configuraciones al externalizarlas en archivos dedicados.
 
@@ -310,7 +310,7 @@ En pos de simplificar y preservar la integridad de las configuraciones durante e
 
 En lugar de codificar valores directamente, se optó por utilizar archivos de configuración, aprovechando la funcionalidad proporcionada por Hydra. Esta herramienta permite centralizar todas las configuraciones en un archivo específico, que contiene los parámetros que definen la configuración para la ejecución de un programa. Estos archivos de configuración adoptan el formato YAML, proporcionando una estructura clara y legible, la adopción de archivos de configuración no solo mejora la legibilidad del código al eliminar valores directos, sino que también facilita la adaptabilidad del programa a diferentes contextos y escenarios. \newline
 
-Otro aspecto es que, con Hydra, cada vez que se evalúa un modelo, las configuraciones se guardan automáticamente en una carpeta designada llamada "outputs". En esta carpeta, cada ejecución del modelo genera automáticamente un subdirectorio con la fecha, hora, minutos y segundos precisos en los que se llevó a cabo. Este enfoque asegura un registro detallado de las configuraciones utilizadas en cada ejecución, lo que no solo facilita la reproducibilidad, sino que también permite un seguimiento de los parámetros específicos utilizados en diferentes ejecuciones.
+Otro aspecto es que, con Hydra, cada vez que se evalúa un modelo, las configuraciones se guardan automáticamente en una carpeta designada llamada ``outputs''. En esta carpeta, cada ejecución del modelo genera automáticamente un subdirectorio con la fecha, hora, minutos y segundos precisos en los que se llevó a cabo. Este enfoque asegura un registro detallado de las configuraciones utilizadas en cada ejecución, lo que no solo facilita la reproducibilidad, sino que también permite un seguimiento de los parámetros específicos utilizados en diferentes ejecuciones.
 
 \begin{figure}[h]
 \centering

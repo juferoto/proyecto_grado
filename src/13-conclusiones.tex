@@ -1,0 +1,80 @@
+\section{Conclusiones}
+
+\textbf{Dentro de implementar técnicas de procesamiento de imágenes para extraer características relevantes y mejorar la capacidad del modelo de Machine Learning en el reconocimiento y detección de las plagas Stenoma catenifer y heilipus lauri en el cultivo de aguacate Hass} a partir de imágenes capturadas en campo se tomó el código diseñado en Jupyter para el análisis de las imágenes del cultivo de aguacate Hass, clasificadas en las categorías ``con Plaga'' y ``sin Plaga'', proporcionar una herramienta efectiva para la inspección visual detallada de las características distintivas entre ambas clasificaciones. Este enfoque simplifica la tarea de análisis exploratorio de datos, revelando que el 93,28\% de las imágenes presentan plagas, mientras que el 6,72\% se consideran saludables. La distribución por dimensiones muestra que la mayoría de las imágenes tienen una resolución de 4,000 píxeles por ancho y 3,000 píxeles de alto. \newline
+
+El procesamiento de la segmentación de imágenes, aplicando un algoritmo de redes neuronales convolucionales como Yolo, demuestra la eficacia del Deep Learning en la identificación precisa de plagas. La aplicación de polígonos para señalar las áreas afectadas permite una interpretación precisa por parte del algoritmo. \newline
+
+La fase de pre-procesamiento, destacando las zonas afectadas por la plaga, simplifica la tarea del algoritmo y mejora su capacidad de interpretación. La estrategia de manejar un conjunto de datos moderado con un enfoque de entrenamiento del 80/20 demuestra la viabilidad de este enfoque para el desarrollo de modelos de Machine Learning. En conjunto, estas etapas contribuyen a la creación de modelos confiables en la detección de plagas en cultivos de aguacate Hass.
+
+\newpage
+
+\textbf{Para el desarrollo y entrenamiento de un modelo de Machine Learning utilizando técnicas apropiadas de preprocesamiento y selección de características, así como algoritmos de aprendizaje supervisado o no supervisado, para lograr una detección de las plagas Stenoma catenifer y heilipus lauri en el cultivo de aguacate Hass} se evidenció que, en el muestreo con validación cruzada (cross-validated subsampling) se realiza repetidamente a la clase mayoritaria para equilibrar las clases y se evalúa el modelo en cada iteración utilizando la clase minoritaria, donde es necesario promediar los resultados obtenidos en todas las iteraciones. Este enfoque es especialmente útil cuando se trata con conjuntos de datos desequilibrados, donde una clase tiene muchos más datos (imágenes) que otra. Al realizar varias iteraciones y calcular promedios, se busca obtener una evaluación más robusta del rendimiento del modelo, ya que cada iteración puede tener una muestra diferente de la clase mayoritaria. \newline
+
+En el proceso de selección de algoritmos para abordar el problema de detección de plagas en cultivos de aguacate Hass, se optó por la regresión logística y Yolo (You Only Look Once) V8. La regresión logística se utiliza para clasificación binaria, asignando probabilidades a la presencia o ausencia de plagas en las imágenes. Por otro lado, Yolo V8 es un algoritmo de clasificación que determina la probabilidad de la presencia de objetos (plagas) en una imagen. \newline
+
+El preprocesamiento desempeñó un papel crucial en la normalización del tamaño de las imágenes, reduciendo la complejidad computacional y asegurando la consistencia en las entradas del modelo. La normalización también evita problemas asociados con la variabilidad en el tamaño de las imágenes, facilitando el análisis pixel por pixel. \newline
+
+La selección y aplicación de estos algoritmos, junto con las técnicas de preprocesamiento y evaluación, demuestran una aproximación analítica y cuidadosa para abordar la información para la detección de plagas.
+
+\newpage
+
+Tras el entrenamiento de modelos para la detección de plagas, la evaluación y comprensión de su desempeño se volvieron fundamentales. En el caso de la regresión logística, el análisis se centró en la matriz de confusión, permitiendo entender cómo el modelo clasifica los datos de prueba. Al calcular promedios de estas matrices tras 10 iteraciones, se obtuvo una precisión del 93.4\%, un recall del 90.4\%, y una exactitud del 92.5\%. Estos resultados demuestran una efectividad destacada en la identificación precisa de casos positivos y negativos, mostrando que el modelo tiene una capacidad sólida para predecir la presencia o ausencia de plagas. \newline
+
+Por otro lado, la implementación de Yolo V8 simplificó el proceso al centrarse solo en las imágenes con plagas. La evaluación por épocas reveló un progreso notable en la precisión del modelo, superando el 95\% en la época 9. Este enfoque optimizado demuestra eficiencia al dirigir la atención a instancias relevantes, mejorando significativamente la capacidad del modelo para clasificar imágenes con precisión. \newline
+
+Tanto la regresión logística como Yolo han demostrado ser herramientas efectivas para la detección de plagas, con sus respectivos enfoques y métricas de evaluación proporcionando información valiosa sobre el rendimiento de los modelos en distintas situaciones y condiciones. \newline
+
+\textbf{En el desarrollo de una metodología MLOps que permita la integración, automatización y monitoreo del modelo de Machine Learning diseñado para el reconocimiento y control de las plagas Stenoma catenifer y heilipus lauri en el cultivo de aguacate Hass}, se planteó un proceso dividido en dos etapas fundamentales: desarrollo y producción. En la fase de desarrollo, alineada con los objetivos iniciales, se centra en el preprocesamiento de datos, abordando tareas como normalización y redimensionamiento. La implementación del MLOps introduce el versionado del código y datos, permitiendo el control de cambios y la trazabilidad. Destaca la iniciación del versionado de datos, almacenando características específicas, como los parámetros críticos del modelo de regresión logística. 
+
+\newpage
+
+En la fase de producción, se identifican procesos clave, desde guardar modelos hasta exponerlos a través de una API, facilitando el acceso desde diversos dispositivos. La aplicación web permite a los usuarios cargar imágenes para predicciones. La integración continua se automatiza, registrando modelos en cada entrenamiento y desplegándolos para su implementación posterior. El monitoreo proactivo y notificaciones ante bajo rendimiento aseguran un mantenimiento constante y mejora de la eficacia de los modelos. \newline
+
+En el ámbito del monitoreo del modelo, se implementó una estrategia sólida utilizando Pytest, una dependencia de Python que permite evaluar y ejecutar pruebas de manera eficiente. Asimismo, con la automatización proporcionada por GitHub Actions permitió el proceso integral que abarca todo el flujo de trabajo. \newline
+
+La elección de Google Cloud Storage para el almacenamiento de los datos desempeñó un papel fundamental en la ejecución eficiente del ciclo de MLOps, específicamente en el modelo de regresión logística. Esta decisión se basó en las capacidades de Google Cloud Storage para almacenar las transformaciones aplicadas a las imágenes, proporcionando una solución robusta para la gestión de datos. \newline
+
+La selección del modelo de regresión logística sobre el modelo Yolo se basó en consideraciones de eficiencia computacional y tiempos de respuesta más rápidos. Aunque esta elección específica se alineó con los requisitos del proyecto, es importante destacar que la metodología empleada es flexible y adaptable. La misma estrategia puede extenderse al modelo Yolo según las necesidades y criterios específicos del propio modelo.
+
+\newpage
+
+En relación con la integración continua se encontró que, la integración de GitHub, MLFlow y DVC  proporciona una robusta solución para el control de versiones y la trazabilidad de código, datos y modelos. Esta combinación permite gestionar eficientemente diferentes estados de datos a lo largo del ciclo de vida del proyecto, facilitando la reproducibilidad y la comprensión de los experimentos. \newline
+
+Por otro lado, la elección de FastAPI para la creación de una API agrega un componente ágil y bien documentado al desarrollo. FastAPI se destaca por su velocidad, proporcionando un entorno moderno para la construcción de una API de manera eficiente. Además, el uso de Streamlit para el desarrollo de aplicaciones web ofrece una solución potente y fácil de implementar. Streamlit simplifica la creación de aplicaciones interactivas centradas en datos, agilizando el proceso y permitiendo una rápida visualización de la información para los usuarios finales. En conjunto, estas herramientas conforman un conjunto integral que agiliza el desarrollo, la gestión y el despliegue de proyectos de aprendizaje automático. \newline
+
+\textbf{Uso de MLOps mediante despliegue en un ambiente controlado, con la capacidad de monitorear y mejorar continuamente el rendimiento del modelo}, se puede señalar que DagsHub, como plataforma integral, permite una solución diseñada específicamente para abordar las complejidades en los modelos de despliegue o MLOps. Su integración de funciones como el control de versiones del código (GitHub), la gestión de los datos (DVC), el seguimiento de datos y experimentos (MLFlow), refleja un enfoque holístico hacia la gestión de proyectos de aprendizaje automático. Al consolidar estas capacidades críticas en una única plataforma, DagsHub facilita un entorno colaborativo para equipos multidisciplinares como científicos de datos e ingeniería de software.
+
+\newpage
+
+La sincronización entre el control de versiones del código y el seguimiento de datos ofrece una visión unificada del desarrollo, permitiendo un rastreo preciso de los cambios en el código y sus implicaciones en los datos. Además, la capacidad de realizar un seguimiento detallado de los experimentos facilita la evaluación y mejora continua de modelos de aprendizaje automático. \newline
+
+La incorporación de contenedores, emerge como un componente relevante para el proceso de la información, simplificando de manera significativa el desarrollo, implementación y gestión de aplicaciones. Docker, al consolidarse como una solución líder, muestra coherencia en el empaquetado, distribución y ejecución de aplicaciones en este ámbito. \newline
+
+La adopción de contenedores facilita la creación de entornos reproducibles, eliminando inconsistencias entre distintas etapas del desarrollo y asegurando una implementación uniforme en diferentes entornos. La portabilidad inherente de los contenedores amplifica la flexibilidad y agilidad en el despliegue de aplicaciones en este proyecto de detección de plagas para el cultivo del aguacate Hass. \newline
+
+Los servicios de Google Cloud Platform (GCP), como Google Cloud Storage, Google Artifact Registry y Google Cloud Run, ofrecen beneficios característicos para un ecosistema de datos dinámico, como lo son las imágenes establecidas para detectar las plagas en el aguacate Hass. Google Cloud provee una solución escalable y segura para almacenar y gestionar datos, permitiendo una fácil integración con otros servicios de GCP y facilitando el acceso a los datos. 
+
+\newpage
+
+Con el proyecto se evidenciada a través de archivos clave como \\ validate\_deploy\_app.yml, validate\_model.yml y validate\_model\_automatically.yml, la importancia de la gestión de tareas automatizadas con GitHub actions. En conjunto, estos archivos ofrecen una visión completa de cómo se gestionan las validaciones y despliegues en el proyecto. La atención detallada a la validación del modelo, la estructura para el despliegue y la automatización de actualizaciones reflejan las prácticas adecuadas al momento de aplicar la metodología MLOps, asegurando la coherencia, fiabilidad y eficiencia en el desarrollo y despliegue de una API o aplicación. \newline
+
+En la evaluación del modelo y despliegue del modelo, este enfoque centrado en el desempeño del modelo en relación a una métrica global permite una evaluación del rendimiento del modelo que se encuentre en producción. La generación de esta métrica es esencial para comprender la eficacia del modelo y tomar decisiones informadas sobre su viabilidad. \newline
+
+Esta práctica en la definición de una o varias métricas refleja un enfoque cuantitativo en la evaluación del rendimiento en el ámbito de ciencia de datos. La claridad en la especificación de estos criterios facilita la toma de decisiones basadas en métricas bien definidas.
+
+
+\section{Futuros Cambios}
+
+\begin{enumerate}
+	\item La implementación de parámetros personalizables para asignar a un científico de datos designado a cada modelo a evaluar representa una práctica clave, debido a que se logra una asignación clara de responsabilidades. La personalización de notificaciones a través de correos electrónicos dirigidos a científicos específicos agiliza la comunicación y permite una respuesta más rápida ante posibles problemas identificados durante la evaluación o el despliegue. \newpage
+
+	\item La automatización del despliegue de modelos constituye un enfoque estratégico en la ciencia de datos, ofreciendo una mejora continua en el rendimiento de los modelos. La implementación de un nuevo “workflow” que evalúe y seleccione automáticamente el mejor modelo basándose en métricas predefinidas claras refleja una práctica analítica avanzada. Este proceso no solo agiliza la toma de decisiones, sino que también garantiza la implementación del modelo más apropiado en producción sin la intervención humana.
+
+	De allí que, el cambio automatizado entre modelos, donde el modelo seleccionado se despliega en producción mientras que el modelo anterior se archiva, demuestra un enfoque dinámico y adaptativo. La capacidad de evaluar continuamente el rendimiento de los modelos en producción y realizar cambios automáticos aumenta la agilidad y la eficacia del sistema en su conjunto.
+
+	\item Desacoplar el código para que permita manejar diferentes modelos de ML, y siga la metodología MLOps. Es relevante el desacoplamiento del código, para permitir la gestión de diversos modelos de machine learning (ML) y siguiendo la metodología MLOps, representa un enfoque estratégico y moderno para el desarrollo y despliegue de modelos. Al separar el código de la lógica específica del modelo, se logra una modularidad esencial que facilita la incorporación y gestión eficiente de diferentes modelos.
+
+	La adopción de la metodología MLOps refleja una orientación hacia la integración continua y la entrega continua (CI/CD) en el ciclo de vida de los modelos de ML. Este enfoque promueve la automatización, la colaboración y la escalabilidad, contribuyendo a una implementación robusta y ágil.
+\end{enumerate}
+
+
