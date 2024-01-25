@@ -2,50 +2,32 @@
 
 \subsection{Técnicas de procesamiento de imágenes para extraer características relevantes y mejorar la capacidad del modelo de Machine Learning en el reconocimiento y detección de las plagas Stenoma catenifer y heilipus lauri en el cultivo de aguacate Hass a partir de imágenes capturadas en campo.}
 
-El preprocesamiento de las imágenes desempeña un papel crucial, donde se encuentra la eliminación de ruido, la corrección de la iluminación y el aumento de contraste permitiendo mejoras en la calidad de las imágenes, lo que facilita la observación, ubicación y detección de plagas. Además, la segmentación de la imagen, que implica dividirla en regiones de interés, permite aislar áreas afectadas por plagas, lo que simplifica dicho análisis.
-
-
 \subsubsection{Exploración de datos}
 
-El análisis exploratorio de datos partió de las 744 fotografía del cultivo de aguacate Hass con las cuales se reveló información valiosa sobre la distribución y características de las imágenes. Al examinar la distribución, se observa la variabilidad en la iluminación, color y perspectiva de las imágenes, indicando dos parámetros en la información, el primero corresponde a las imágenes que no presentan el impacto de las plagas (50 imágenes) y el segundo las imágenes que evidencian el proceso de la plaga en el cultivo (694 imágenes con plaga). Esto sugiere la necesidad de técnicas de pre-procesamiento para normalizar la información antes de cualquier análisis.
+El análisis exploratorio de datos partió de las 744 fotografía del cultivo de aguacate Hass con las cuales se reveló información valiosa sobre la distribución y características de las imágenes. Al examinar la distribución, se observa dos parámetros en la información, el primero corresponde a las imágenes que no presentan el impacto de las plagas (50 imágenes) y el segundo las imágenes que evidencian el proceso de la plaga en el cultivo (694 imágenes). Esto sugiere la necesidad de técnicas de pre-procesamiento para normalizar la información antes de cualquier análisis.
 
 Por esta razón, se estableció dos carpetas de información donde una de ellas se consignan las fotografías que presentan las características de las plantas sana y en la otra carpeta se encuentran las fotografías que muestran las tipologías del impacto de las plagas.
+
+En este sentido, se desarrollaron algoritmos de extracción de características, como por ejemplo el histograma de colores, descriptores de texturas y las características basadas en formas, con las cuales se representa la información relevante de las imágenes dentro del cultivo, para que estas características se conviertan en entradas de reconocimiento en el modelo de aprendizaje automático.
+
+El código en Python está diseñado para la visualización de imágenes de cultivos de aguacate Hass\footnote{El código para la extracción de características de las imágenes se encuentra en GitHub \href{https://github.com/juferoto/mlops_project/blob/master/notebooks/analisisExploratorio.ipynb}{aquí}}, clasificadas en dos categorías: ``Con Plaga'' y ``Sin Plaga''. Este programa, destinado a ser ejecutado en un entorno de Jupyter Notebook, su función principal es cargar y mostrar de manera detallada las dos tipologías definidas en las carpetas con imágenes de cada categoría, permitiendo una inspección visual clara de las características distintivas entre los cultivos afectados por plagas y aquellos que se consideran saludables.
 
 \newpage
 
 \begin{figure}[h]
 \centering
 \caption{Exploración de datos}
-\includegraphics[width=1\textwidth]{resultados/expDatos.png}
+\includegraphics[width=0.8\textwidth]{resultados/expDatos.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
 \label{fig:figuraExpDatos}
 \end{figure}
 
-
-En este sentido, se desarrollaron algoritmos de extracción de características, como por ejemplo el histograma de colores, descriptores de texturas y las características basadas en formas, con las cuales se representa la información relevante de las imágenes dentro del cultivo, para que estas características se conviertan en entradas de reconocimiento en el modelo Machine Learning.
-
-El siguiente código en Python está diseñado para la visualización de imágenes de cultivos de aguacate Hass, clasificadas en dos categorías: ``Con Plaga'' y ``Sin Plaga''. Este programa, destinado a ser ejecutado en un entorno de Jupyter Notebook, utiliza las bibliotecas Matplotlib y OpenCV. Su función principal es cargar y mostrar de manera detallada las dos tipologías definidas en las carpetas con imágenes de cada categoría, permitiendo una inspección visual clara de las características distintivas entre los cultivos afectados por plagas y aquellos que se consideran saludables.
-
-\newpage
-
-\begin{figure}[h]
-\centering
-\caption{Código de extracción de características}
-\includegraphics[width=1\textwidth]{resultados/codCaracteristicas.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
-\label{fig:figuraCodCaracteristicas}
-\end{figure}
-
-Este código estructurado simplifica la tarea de analizar visualmente las imágenes, proporcionando una representación clara de las dos clasificaciones, ``Con Plaga'' y ``Sin Plaga'', en el cultivo de aguacate Hass. Este código generó una distribución de las imágenes por categoría para definir proporcionalmente cuántas imágenes se tenía de plaga y cuántas se tenían sin plaga.
-
 Al realizar un análisis exploratorio de datos para comprender la distribución y características de las imágenes se puede señalar que, las imágenes sin plagas corresponden al 6,72\% y las imágenes con plagas el 93,28\% como se describe a continuación:
-
-\newpage
 
 \begin{figure}[h]
 \centering
 \caption{Distribución porcentual de las categorías de las imágenes}
-\includegraphics[width=1\textwidth]{resultados/distPorcentual.png}
+\includegraphics[width=0.6\textwidth]{resultados/distPorcentual.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
 \label{fig:figuraDistPorcentual}
 \end{figure}
@@ -54,82 +36,50 @@ Se puede decir que las imágenes que generan mayor información corresponden a l
 
 \newpage
 
-\begin{figure}[h]
-\centering
-\caption{Código imágenes por categoría y distribución de tamaño}
-\includegraphics[width=1\textwidth]{resultados/codImagenes.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
-\label{fig:figuraCodImagenes}
-\end{figure}
+Por lo tanto, se generó el código correspondiente para generar tanto la distribución de imágenes por categoría como la distribución por tamaños, y por otro lado, se generó un código para saber cómo está distribuido por cada alto y ancho de las imágenes. 
 
-Este es el código correspondiente para generar tanto la distribución de imágenes por categoría como la distribución por tamaños. 
-Por otro lado, se generó un código para saber cómo está distribuido por cada alto y ancho de las imágenes. Como se puede ver en la imagen que el 87,6\% de las imágenes presentan una resolución de 4.000 píxeles por ancho y por el lado de las alturas más del 87,6\% tienen 3000 píxeles de alto.
-
-\newpage
+Como se puede ver en la imagen que el 87,6\% de las imágenes presentan una resolución de 4.000 píxeles por ancho y por el lado de las alturas más del 87,6\% tienen 3000 píxeles de alto \footnote{El código para el tratamiento de imágenes por categoría y alturas se encuentra en GitHub \href{https://github.com/juferoto/mlops_project/blob/master/notebooks/analisisExploratorio.ipynb}{aquí}}.
 
 \begin{figure}[h]
 \centering
 \caption{Distribución alto y ancho de las imágenes}
-\includegraphics[width=1\textwidth]{resultados/distAlturas.png}
+\includegraphics[width=0.7\textwidth]{resultados/distAlturas.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
 \label{fig:figuraDistAlturas}
 \end{figure}
 
-A continuación el código que me genera la distribución por alto y ancho de cada imagen
-
-\newpage
-
-\begin{figure}[h]
-\centering
-\caption{código de distribución alto y ancho}
-\includegraphics[width=1\textwidth]{resultados/codDistAlturas.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
-\label{fig:figuraCodDistAlturas}
-\end{figure}
-
-La exploración de datos, en una aplicación interactiva como Jupyter Notebook con Python, es relevante en el desarrollo de modelos de Machine Learning, ya que proporciona una comprensión de las características propias de los datos, facilita la toma de decisiones informadas sobre las imágenes que expresan información sobre si tienen plagas o no en el cultivo de aguacate Hass.
-
 \subsubsection{Remoción de fondo de imagen}
 
-Quitar el fondo de cada una de las imágenes dejando solo el aguacate, enfocándose solamente en las imágenes que muestra signos de plagas, es esencial en el análisis de las imágenes para la detección y monitoreo de enfermedades. Al aislar el aguacate de su entorno, se simplifica la tarea de identificación de posibles plagas y enfermedades, permitiendo una evaluación más precisa y eficiente.
+Quitar el fondo de cada una de las imágenes dejando solo el aguacate, enfocándose solamente en las imágenes que muestra signos de plagas, es esencial en el análisis de las imágenes para la detección y monitoreo de enfermedades. Al aislar el aguacate de su entorno, se simplifica la tarea de identificación de posibles plagas y enfermedades, permitiendo una evaluación más precisa y eficiente\footnote{El código de eliminación de fondo de las imágenes se encuentra en GitHub \href{https://github.com/juferoto/mlops_project/blob/master/notebooks/removerFondo.ipynb}{aquí}}.
 
 \newpage
 
-La extracción del fondo proporciona un contexto visual claro para el análisis de las lesiones y síntomas presentes en el aguacate Hass. Este enfoque mejora la capacidad de los algoritmos de visión para identificar patrones sutiles asociados con enfermedades específicas, ya que elimina distracciones no relevantes y optimiza la focalización en las características de interés.
+Este enfoque mejora la capacidad de los algoritmos de visión para identificar patrones sutiles asociados con enfermedades específicas, ya que elimina distracciones no relevantes y optimiza la focalización en las características de interés.
+
+Todas las 744 imágenes presentaban un fondo que podría introducir ruido durante el análisis. Por lo tanto, se llevó a cabo el proceso para eliminar las imágenes del fondo, dejándolas libres de ruido. El resultado final consiste en la preservación únicamente de la parte central de la imagen, como se aprecia en la imagen anterior con el código implementado realiza la tarea de eliminar el fondo y retener solo la imagen del aguacate.
 
 \begin{figure}[h]
 \centering
 \caption{Proceso de remoción de fondo de las imágenes}
-\includegraphics[width=1\textwidth]{resultados/remFondo.png}
+\includegraphics[width=8cm]{resultados/remFondo.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
 \label{fig:figuraRemFondo}
-\end{figure}
+\end{figure} 
 
-Todas las 744 imágenes presentaban un fondo que podría introducir ruido durante el análisis. Por lo tanto, se llevó a cabo un proceso para eliminar o separar las imágenes del fondo, dejándolas libres de ruido. El resultado final consiste en la preservación únicamente de la parte central de la imagen, que destaca el aguacate Hass, como se aprecia en la imagen anterior con el código implementado realiza la tarea de eliminar el fondo y retener solo la imagen del aguacate. 
-
-Este proceso es crucial para mejorar la calidad del análisis de las imágenes, ya que reduce interferencias externas y resalta la región de interés. La efectividad de este código asegura que las imágenes estén listas para ser utilizadas en análisis más detallados y precisos relacionados con el aguacate y cualquier aspecto asociado, sin la interferencia de fondos indeseados.
-
-
-\newpage
-
-\begin{figure}[h]
-\centering
-\caption{código de eliminación de fondo}
-\includegraphics[width=1\textwidth]{resultados/codRemFondo.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
-\label{fig:figuraCodRemFondo}
-\end{figure}
+La efectividad de este código asegura que las imágenes estén listas para ser utilizadas en análisis más detallados y precisos relacionados con el aguacate y cualquier aspecto asociado, sin la interferencia de fondos indeseados.
 
 \subsubsection{Procesamiento de imágenes}
 
 En el procesamiento de la segmentación de imágenes como se viene señalando en los anteriores momentos, permite resaltar la zona en donde se encuentra las caracteristicas propias de la plaga. El proceso tiene como fin facilitarle al algoritmo de Machine learning interpretar las imágenes. Este enfoque se integra en la fase de pre-procesamiento para resaltar la zona afectada por la plaga, simplificando la tarea del algoritmo y mejorando su capacidad de interpretación.
 
-A cada una de estas 694 imágenes que presentan afectaciones de la plaga se trazó un polígono para saber en dónde estaba ubicada la plaga, este polígono genera unas coordenadas que luego van a ser interpretadas por uno de los algoritmos usados para el proyecto. 
+A cada una de estas 694 imágenes que presentan afectaciones de la plaga se trazó un polígono para saber en dónde estaba ubicada la plaga, este polígono genera unas coordenadas que luego van a ser interpretadas por uno de los algoritmos usados para el proyecto.
+
+\newpage
 
 \begin{figure}[h]
 \centering
 \caption{Proceso de segmentación de las imágenes}
-\includegraphics[width=1\textwidth]{resultados/proSeg.png}
+\includegraphics[width=0.7\textwidth]{resultados/proSeg.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
 \label{fig:figuraProSeg}
 \end{figure}
@@ -139,23 +89,20 @@ Posteriormente se utilizó la aplicación DataTorch para hacer el trazado de los
 \begin{figure}[h]
 \centering
 \caption{Proceso de segmentación de las imágenes con DataTorch}
-\includegraphics[width=1\textwidth]{resultados/proSeg2.png}
+\includegraphics[width=0.7\textwidth]{resultados/proSeg2.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
 \label{fig:figuraProSegDatatorch}
 \end{figure}
-
-
-\newpage
 
 \subsubsection{Conjunto de entrenamiento y prueba}
 
 El proceso de entrenamiento en Machine Learning implica enseñar a un modelo a reconocer patrones y tomar decisiones basadas en datos. Para lograr esto, es necesario dividir el conjunto de datos normalmente en dos partes: la primera, conocida como conjunto de entrenamiento, se utiliza para alimentar al modelo con ejemplos que le permitan aprender patrones y relaciones entre variables. Esta fase busca ajustar los parámetros del modelo para que pueda generalizar y hacer predicciones precisas sobre datos no vistos anteriormente.
 
+\newpage
+
 La segunda parte es el conjunto de validación, que actúa como una evaluación independiente del rendimiento del modelo. Al utilizar datos que el modelo no ha visto durante el entrenamiento, se puede evaluar su capacidad y prevenir problemas como el sobreajuste, donde el modelo memoriza los datos de entrenamiento en lugar de aprender patrones generales.
 
 Dividir el conjunto de datos de las imágenes con plaga en conjuntos de entrenamiento y prueba como se describe a continuación:
-
-\newpage
 
 \begin{figure}[h]
 \centering
@@ -165,33 +112,35 @@ Dividir el conjunto de datos de las imágenes con plaga en conjuntos de entrenam
 \label{fig:figuraProEntrenamiento}
 \end{figure}
 
-Esta división en conjuntos de entrenamiento y validación es crucial para garantizar que el modelo pueda adaptarse a nuevos datos de manera efectiva, lo que mejora su capacidad predictiva y su utilidad en situaciones del mundo real. El proceso de la investigación es moderado, y puede manejar información de porcentajes de 80\% para entrenamiento y 20\% para validación. Cabe señalar que existen otros porcentajes como el 70 /30 refiriéndose a 70\% entrenamiento y 30\% de validación pero estos porcentajes son más útiles en conjuntos de datos más pequeños. 
+Esta división en conjuntos de entrenamiento y validación es crucial para garantizar que el modelo pueda adaptarse a nuevos datos de manera efectiva, lo que mejora su capacidad predictiva y su utilidad en situaciones del mundo real.
 
 Como para esta investigación se tiene un conjunto de datos moderado, es posible manejar un entrenamiento del de un 80/20; eso quiere decir que, del total de las imágenes 595 irán para el entrenamiento y 149 para validación, tanto la información con plaga como sin plaga, es decir se tiene toda la información conjunta.
 
-\subsection{Metodología MLOps permitiendo la integración, automatización y monitoreo del modelo de Machine Learning diseñado para el reconocimiento y control de las plagas Stenoma catenifer y heilipus lauri en el cultivo de aguacate Hass}
+Cabe señalar que existen otros porcentajes para el conjunto de datos como el 70/30 refiriéndose a 70\% entrenamiento y 30\% de validación, pero estos porcentajes son más útiles en conjuntos de datos más pequeños.
+
+\subsection{Modelo de Machine Learning utilizando técnicas apropiadas de preprocesamiento y selección de características, así como algoritmos de aprendizaje supervisado o no supervisado, para lograr una detección de las plagas Stenoma catenifer y heilipus lauri en el cultivo de aguacate Hass}
+
+\newpage
 
 \subsubsection{Selección de algoritmos}
 
-Para el proyecto se deben seleccionar algoritmos de aprendizaje supervisado o no supervisado adecuados para el problema de detección de plagas. Se seleccionó el algoritmo de la regresión logística, que es un algoritmo de clasificación que ayuda a determinar la probabilidad de que una imagen tenga o no tenga un objeto en este caso una plaga. El proceso corresponde a clasificar de manera binaria, entre cero y uno, donde cero es que no tiene plaga y el objeto uno donde sí tiene plaga.
+Para el proyecto se seleccionan algoritmos de aprendizaje supervisado o no supervisado adecuados para el problema de detección de plagas. Se seleccionó el algoritmo de la regresión logística, que es un algoritmo de clasificación que ayuda a determinar la probabilidad de que una imagen tenga o no tenga un objeto en este caso una plaga. El proceso corresponde a clasificar de manera binaria, entre cero y uno, donde cero es que no tiene plaga y el objeto uno donde sí tiene plaga.
 
 También, se seleccionó el algoritmo de Yolo V8, que sus siglas en ingles significan You Only Look Once. Este algoritmo emplea redes neuronales convolucionales, estamos hablando de Deep learning, para facilitar e interpretar las imágenes. Este enfoque se integra en la fase de pre-procesamiento que se encarga de resaltar la zona afectada por la plaga, simplificando la tarea del algoritmo de Machine Learning y mejorando su capacidad de interpretación.
 
 Estas redes neuronales convolucionales pueden aprender patrones y características complejas, permitiendo la identificación precisa de plagas en imágenes agrícolas. Además, el Deep Learning facilita la interpretación de las imágenes al automatizar la extracción de características, eliminando la necesidad de diseñar manualmente algoritmos específicos.
 
-\newpage
-
 Para \cite{schmidhuber2015deep}, la capacidad del Deep Learning para adaptarse a patrones variados en imágenes, aprende automáticamente, agrupan gran cantidad de información, predicen comportamiento, los cuales contribuyen significativamente a mejorar la eficiencia y precisión en la detección de plagas. Su habilidad para generalizar a partir de conjuntos de datos grandes y diversos lo convierte en una herramienta poderosa para interpretar imágenes, proporcionando una base sólida para aplicaciones prácticas en la identificación y monitoreo de plagas, lo que en última instancia beneficia la gestión y la seguridad del proceso del cultivo de aguacate Hass.
+
+\newpage
 
 \begin{figure}[h]
 \centering
 \caption{Acción del algoritmo Yolo V8}
-\includegraphics[width=1\textwidth]{resultados/yoloV8.png}
+\includegraphics[width=0.7\textwidth]{resultados/yoloV8.png}
 \caption*{\footnotesize Fuente: \cite{decoder2023}}
 \label{fig:figuraYoloV8}
 \end{figure}
-
-\newpage
 
 En la imagen se puede ver que se clasifica un objeto con un 95\% de probabilidad de que sea una persona, un 93\% de establecer el objeto como “planta” y el otro objeto que se ve corresponde a un 44\% que el objeto sea un “carro”. El algoritmo Yolo V8 incluso puede ser usado en video, permitiendo en este caso detectar objetos incluso en tiempo real.
 
@@ -203,14 +152,12 @@ El pre-procesamiento adicional correspondió a normalizar el tamaño de las imá
 
 También habrá una normalización del modelo con datos nuevos, es decir que, si es necesario ingresar datos nuevos al modelo, pasaran por esta normalización cada uno de los datos en una resolución determinada.
 
-\newpage
-
 Para la normalización de las dimensiones se definió un tamaño fijo de 640 píxeles, tanto de ancho como de alto, debido a que Yolo en su versión 8 maneja valores por defecto en esta resolución. Por esta razón, se mantuvo la misma resolución en los dos modelos seleccionados, tanto para el Yolo, que ya tiene por defecto este valor, como en la regresión logística. El siguiente código hace referencia a la normalización del tamaño de las imágenes, pero únicamente para el modelo de regresión logística, debido a que Yolo internamente hace esta normalización.
 
 \begin{figure}[h]
 \centering
 \caption{normalización de las imágenes para la regresión logística}
-\includegraphics[width=0.7\textwidth]{resultados/normRegresion.png}
+\includegraphics[width=0.6\textwidth]{resultados/normRegresion.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
 \label{fig:figuraNormRegresion}
 \end{figure}
@@ -255,7 +202,7 @@ En el desarrollo de los scripts para implementar el modelo de regresión logíst
 
 \begin{figure}[h]
 \centering
-\caption{código desarrollado para el modelo de regresión logística}
+\caption{Código desarrollado para el modelo de regresión logística}
 \includegraphics[width=1\textwidth]{resultados/codModelRegresion.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
 \label{fig:figuraCodModelRegresion}
@@ -290,31 +237,31 @@ El entrenamiento con más épocas puede ayudar a mejorar la capacidad del modelo
 
 Las épocas adicionales permiten ajustar finamente los parámetros del modelo. A medida que el modelo ve los datos varias veces, puede hacer ajustes más precisos en los pesos para mejorar el rendimiento en el conjunto de entrenamiento.
 
-\newpage
-
 \textbf{Mejora de Métricas de Rendimiento:}
 
 En muchos casos, las métricas de rendimiento (como precisión, recall, F1-score, etc.) pueden mejorar con un entrenamiento más prolongado. Las métricas estabilizan y pueden alcanzar su mejor rendimiento después de varias épocas.
+
+\newpage
 
 Manejar 10 épocas podría ser mejor que manejar pocas épocas, esto puede depender de la complejidad del problema, del tamaño del conjunto de datos y de la arquitectura específica del modelo. Más épocas generalmente significan más oportunidades para que el modelo aprenda y mejore, siempre y cuando se evite el sobreajuste. Sin embargo, no siempre es necesario o beneficioso utilizar un gran número de épocas, ya que podría aumentar los costos computacionales sin proporcionar mejoras significativas en el rendimiento del modelo.
 
 \begin{figure}[h]
 \centering
-\caption{código convención del modelo Yolo}
-\includegraphics[width=1\textwidth]{resultados/convencionYolo.png}
+\caption{Código convención del modelo Yolo}
+\includegraphics[width=0.2\textwidth]{resultados/convencionYolo.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
 \label{fig:figuraConvencionYolo}
 \end{figure}
 
-\newpage
-
 \begin{figure}[h]
 \centering
-\caption{código transformación de formato Coco a formato Yolo}
-\includegraphics[width=1\textwidth]{resultados/cocoAYolo.png}
+\caption{Código transformación de formato Coco a formato Yolo}
+\includegraphics[width=0.8\textwidth]{resultados/cocoAYolo.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
 \label{fig:figuraCocoAYolo}
 \end{figure}
+
+\newpage
 
 Dentro del código anterior se especifica el cambio del formato Coco a Yolo partiendo de las categorías establecidas con la plaga y si no tiene plaga no se denota. Como se describe en el código se escribe las dimensiones de ancho y alto para las anotaciones, donde dice que para una imagen dentro del polígono se encuentra la plaga denotada en los cuatro lados expresados en cuatro valores (x, y, w, h) que son la coordenada X y Y en donde se ubica el extremo superior del polígono a marcar, como el ancho y alto en donde se encuentra la placa.
 
@@ -323,13 +270,11 @@ Estos parámetros de la cooredanada X y Y del polígono en formato Yolo, se posi
 
 \begin{figure}[h]
 \centering
-\caption{proceso de cambio de Coco a Yolo}
+\caption{Proceso de cambio de Coco a Yolo}
 \includegraphics[width=1\textwidth]{resultados/camCocoAYolo.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
 \label{fig:figuraCamCocoAYolo}
 \end{figure}
-
-\newpage
 
 Después de realizar la transformación, el procedimiento implica identificar y organizar la información (ver figura \ref{fig:figuraPoligonoCocoAYolo}) de la siguiente manera:
 \begin{itemize}
@@ -340,13 +285,12 @@ Después de realizar la transformación, el procedimiento implica identificar y 
 
 \begin{figure}[h]
 \centering
-\caption{identificación del polígono cambio de Coco a Yolo}
+\caption{Identificación del polígono cambiado de Coco a Yolo}
 \includegraphics[width=1\textwidth]{resultados/poligonoCocoAYolo.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
 \label{fig:figuraPoligonoCocoAYolo}
 \end{figure}
 
-\newpage
 
 Este proceso corresponde a la conversión del formato Coco a Yolo. En otras palabras, se especifica una clase, en este caso, ``plaga'' designada como cero. Los dos primeros valores indican las coordenadas del punto medio del cuadro que se va a delimitar, mientras que los dos valores restantes representan el alto y el ancho de la imagen en cuestión. Este código pertenece al modelo Yolo V8, donde se lleva a cabo la distribución de las imágenes en las dos particiones correspondientes de entrenamiento y validación.
 
@@ -364,7 +308,7 @@ La siguiente imagen \ref{fig:figuraCodModelYolo} hace referencia a la implementa
 
 \begin{figure}[h]
 \centering
-\caption{código desarrollado para el modelo Yolo V8}
+\caption{Código desarrollado para el modelo Yolo V8}
 \includegraphics[width=0.4\textwidth]{resultados/codModelYoloP1.png}
 \includegraphics[width=0.4\textwidth]{resultados/codModelYoloP2.png}
 \includegraphics[width=0.4\textwidth]{resultados/codModelYoloP3.png}
@@ -386,7 +330,7 @@ Después de haber entrenado los modelos y pasar a predecir la información que s
 \label{fig:figuraEvaModelos}
 \end{figure}
 
-Una interpretación efectiva de la matriz de confusión en un modelo YOLO es esencial para entender cómo se comporta en términos de identificación y ubicación de objetos en las imágenes de entrada. Al analizar los elementos de la matriz, los científicos de datos pueden ajustar el modelo para mejorar su rendimiento y garantizar una detección precisa de objetos en diferentes escenarios y condiciones.
+Una interpretación efectiva de la matriz de confusión en un modelo Yolo es esencial para entender cómo se comporta en términos de identificación y ubicación de objetos en las imágenes de entrada. Al analizar los elementos de la matriz, los científicos de datos pueden ajustar el modelo para mejorar su rendimiento y garantizar una detección precisa de objetos en diferentes escenarios y condiciones.
 
 Para la regresión logística al tener 10 iteraciones se calculó el promedio de esas matrices de confusión, es decir que cada vez que se pasaba el modelo en este subconjunto de datos de 100 imágenes se estaba calculando una matriz de confusión, se van guardando cada una de esas matrices y al final lo que se hace es promediarlas, para tener los resultados de exactitud, precisión y sensibilidad como se describe en la imagen \ref{fig:figuraEjeProMatrizConfusion}.
 
@@ -395,7 +339,7 @@ Para la regresión logística al tener 10 iteraciones se calculó el promedio de
 
 \begin{figure}[h]
 \centering
-\caption{resultado promedio de la matriz de confusión del modelo de regresión}
+\caption{Resultado promedio de la matriz de confusión del modelo de regresión}
 \includegraphics[width=1\textwidth]{resultados/ejeProMatrizConfusion.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
 \label{fig:figuraEjeProMatrizConfusion}
@@ -407,11 +351,11 @@ Además, la parte de evaluación del modelo de regresión logística, después d
 
 Entonces eso quiere decir que cuando se habla de precisión se especifica la cantidad de casos positivos detectados, lo que significa que para este caso fueron realmente positivos detectados en un 93.4\%, una sensibilidad que corresponde a la proporción de los casos positivos correctamente identificados que fue de un 90.4\%. Para el caso de la exactitud se evidenció un 92.5\%, es decir la cantidad de predicciones correctas esta en este porcentaje, siendo un buen promedio de predicción para validar si una imagen tiene o no tiene plaga en un 92.5\%.
 
-
+\newpage
 
 \begin{figure}[h]
 \centering
-\caption{código evaluación del modelo utilizando regresión logística en el conjunto de prueba.}
+\caption{Código evaluación del modelo utilizando regresión logística en el conjunto de prueba.}
 \includegraphics[width=1\textwidth]{resultados/codEvaModelRegresion.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
 \label{fig:figuraCodEvaModelRegresion}
@@ -426,7 +370,7 @@ En Yolo V8, ya no es necesario clasificar las imágenes que no contienen plagas.
 
 \begin{figure}[h]
 \centering
-\caption{resultado del modelo Yolo V8}
+\caption{Resultado del modelo Yolo V8}
 \includegraphics[width=1\textwidth]{resultados/ejeProMatrizConfusionYolo.png}
 \includegraphics[width=1\textwidth]{resultados/resYolo.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
@@ -450,7 +394,7 @@ En los resultados proporcionados por el modelo, se presentan imágenes que fuero
 
 \begin{figure}[h]
 \centering
-\caption{visualización de la evaluación realizada con Yolo V8}
+\caption{Visualización de la evaluación realizada con Yolo V8}
 \includegraphics[width=1\textwidth]{resultados/visPruebasYolo.png}
 \caption*{\footnotesize Fuente: Elaboración Propia}
 \label{fig:figuraVisPruebasYolo}
