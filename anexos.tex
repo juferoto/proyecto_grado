@@ -1,0 +1,57 @@
+
+%% Formato para la presentaci\'on de  proyectos de grado. 
+%% Maestría en Ingeniería de Software
+%% Pontificia Universidad Javeriana
+%% Elaborado por Angela Villota y Luisa Rincón
+%% Inspirado en Formato elaborado para carrera de Ing de Sistemas
+%% V 1.0 Abril - 2022
+
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{letterpaper}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{cite}
+\usepackage{titling}
+\usepackage{setspace}
+\usepackage{graphicx}
+\graphicspath{{img/}} %ruta de la carpeta en donde estaràn las imágenes
+\usepackage{blindtext}
+% \usepackage{url}
+\usepackage{hyperref}
+\usepackage{natbib} %% para citaciones
+\usepackage[format=hang,font=small,labelfont=bf]{caption}
+
+% *** ALIGNMENT PACKAGES ***
+%
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{pdflscape}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{dblfloatfix}
+\usepackage{subfig}
+\usepackage{todonotes}
+\usepackage{ulem}
+\usepackage{xcolor,colortbl}
+
+\onehalfspacing
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{2}
+
+\usepackage{xcolor}
+\definecolor{light-gray}{gray}{0.95}
+\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+
+\begin{document}
+
+\section{Anexo 1}\label{configuraGCP}
+
+\input{src/1-anexo}
+
+\end{document}
