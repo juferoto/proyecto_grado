@@ -3,7 +3,7 @@
 El marco de referencia está organizado en un primer momento con el análisis del estado del arte para la comprensión del objeto de estudios sobre MLOps para el ámbito agrícola y un segundo momento con los elementos teórico-conceptuales que permiten la argumentación teórica sobre Machine Learning, la metodología MLOps y el cultivo de aguacate Hass con las plagas detalladas para esta investigación.
 
 \subsection{Estado del arte}
-Las investigaciones a nivel internacional se describen a continuación
+Las investigaciones a nivel internacional se describen a continuación:
 
 \begin{longtable}{|p{2cm}|p{3cm}|p{3cm}|p{4cm}|p{3cm}|}
 
@@ -13,15 +13,15 @@ Las investigaciones a nivel internacional se describen a continuación
 \hline
 \endhead
 
-\citet{aimacana2021} & Análisis comparativo de algoritmos de Machine Learning para la detección de plagas en los cultivos representativos de la sierra ecuatoriana & Realizar un análisis comparativo entre distintos algoritmos de Machine y Deep Learning, que permita determinar cuál de ellos ofrece mejores resultados en la detección de plagas en cultivos endémicos de la serranía ecuatoriana. & Metodología CRISPDM la cual sus siglas significan Proceso Estándar Entre Industrias para la Minería de Datos. & El estudio realizado se aplicó el mejor modelo para la construcción de un prototipo el cual fue la red neuronal convolucional InceptionV3; el prototipo realizado, permite al usuario enviar imágenes para ser procesadas por el modelo y este a su vez reciba una predicción he información de los síntomas, además de una sugerencia de un posible tratamiento. \\
+\citet{aimacana2021} & Análisis comparativo de algoritmos de Machine Learning para la detección de plagas en los cultivos representativos de la sierra ecuatoriana & Realizar un análisis comparativo entre distintos algoritmos de Machine y Deep Learning, que permita determinar cuál de ellos ofrece mejores resultados en la detección de plagas en cultivos endémicos de la serranía ecuatoriana. & Metodología CRISPDM la cual sus siglas significan Proceso Estándar Entre Industrias para la Minería de Datos. & El estudio realizado se aplicó el mejor modelo para la construcción de un prototipo el cual fue la red neuronal convolucional InceptionV3; el prototipo realizado, permite al usuario enviar imágenes para ser procesadas por el modelo y este a su vez reciba una predicción e información de los síntomas, además de una sugerencia de un posible tratamiento. \\
 \hline
 \citet{castaneda2021} & Detección de nutrientes del suelo y planta, y pestes en campos de cultivo de banano orgánico con Machine Learning & Diseño una plataforma que sirva de apoyo al agricultor para poder estimar qué macronutrientes tiene en deficiencia su planta de banano, con la finalidad de obtener un mejor producto en la cosecha del banano orgánico, así como una posible interfaz para la detección de plagas en el banano. & Se utilizó un conjunto de fotografías público, el cual fue encontrado en un repositorio y se escogieron aquellas plagas que afectaban al banano. Posteriormente, se realizó un aumento a este conjunto de fotografías mediante transformaciones lineales y las imágenes resultantes fueron pre procesadas en diferentes espacios de color para ser utilizadas como entradas a la red neuronal. & El modelo permitió una alta precisión a través de diferentes métricas. Continuamente se desarrolló un prototipo de plataforma web para que los agricultores en un futuro pudieran acceder al sistema. \\
 \hline
 \citet{valenzuela2022} & Detección y Clasificación de Enfermedades en el Tomate Mediante Deep Learning y Computer Visión & Aplicar el aprendizaje profundo a problemas de visión de computadora tales como detección y clasificación específicamente en las enfermedades del tomate mediante el procesamiento de imágenes digitales. & Neuronales pre-entrenadas (transfer learning), para hacer la detección de la hoja de tomate (primera: Faster Mask R-CNN) y luego a partir de la detección, realizar la clasificación de la enfermedad (segunda: red neuronal convolucional), tomando como entrada el área de la imagen donde se encuentra la hoja, luego de realizar la clasificación el sistema desarrollado proporciona información de los síntomas asociados a la enfermedad, como también cómo proceder con la prevención y el tratamiento a seguir en tiempo real. & Con el advenimiento de las redes neuronales, ha permitido mejorar drásticamente la precisión, tanto de la detección de objetos como de la clasificación de imágenes. \\
 \hline
-\citet{garcia2022} & Implementación de modelo Machine Learning aplicado al estudio de enfermedades de café en el centro de investigación Sacha Wiwa, perteneciente a la parroquia Gasaganga, Cantón la Maná, provincia de Cotopaxi & Implementar modelo de clasificación de imágenes empleando técnicas de Machine Learning, para la detección de enfermedades del Cafeto (Coffea arábica) en huertas del Centro de Investigación Sacha Wiwa. & Cualitativa experimental permite la selección, análisis y presentación de los datos documentados de una manera ordenada y siguiendo los objetivos del proyecto. & Mediante el modelo de Machine Learning desarrollado en el entorno virtual “Jupyter lab” se logró crear y entrenar las redes neuronales convencionales para la clasificación de las enfermedades del café expuestas en el caso de estudio en conjunto con la clasificación sana del cafeto. \\
+\citet{garcia2022} & Implementación de modelo Machine Learning aplicado al estudio de enfermedades de café en el centro de investigación Sacha Wiwa, perteneciente a la parroquia Gasaganga, Cantón la Maná, provincia de Cotopaxi & Implementar modelo de clasificación de imágenes empleando técnicas de Machine Learning, para la detección de enfermedades del Cafeto (Coffea arábica) en huertas del Centro de Investigación Sacha Wiwa. & Cualitativa experimental permite la selección, análisis y presentación de los datos documentados de una manera ordenada y siguiendo los objetivos del proyecto. & Mediante el modelo de Machine Learning desarrollado en el entorno virtual “Jupyter lab” se lograron crear y entrenar las redes neuronales convencionales para la clasificación de las enfermedades del café expuestas en el caso de estudio en conjunto con la clasificación sana del cafeto. \\
 \hline
-\caption*{\footnotesize Fuente: Elaboración del investigador}
+\caption*{\footnotesize Fuente: Elaboración propia}
 \end{longtable}
 
 
@@ -49,7 +49,7 @@ Para el caso de las investigaciones nacionales se detallan en la siguiente tabla
 \citet{tovar2019} & Diseño e implementación de un aplicativo móvil para realizar la detección temprana de la enfermedad de la Sigatoka Negra en los cultivos de plátanos & Diseñar e implementar un aplicativo móvil, para realizar la detección temprana de la enfermedad de la Sigatoka Negra en los cultivos de plátanos. & La metodología utilizada para la detección de esta enfermedad, consistió en construir una base de datos que contiene imágenes de los posibles estados de la misma, teniendo en cuenta la escala estándar de Fouré utilizada para analizar la forma de evolución de la Sigatoka Negra. Luego se inició con la creación del algoritmo, en donde se realizó la segmentación de cada una de las imágenes para generar un realce en la enfermedad, para posteriormente obtener las características respectivas y finalmente a partir de las técnicas de Machine Learning generar una clasificación que identifique el estadío en el que se encuentra una hoja al tomar una imagen que no se ubique dentro de la base de datos. & El aplicativo móvil demostró un porcentaje de acierto del 80\% en la detección de la Sigatoka Negra. Por lo tanto, la aplicación puede llegar a ayudar a los productores de plátano, evitando así pérdidas económicas. \\
 \citet{avila2022} & Entrenamiento de redes neuronales para la identificación de plagas en cultivos de café. & Implementar un aplicativo basado en visión artificial para la identificación de Cercospora, Phoma, Roya, minador de hojas y Arañita roja, en el café a partir del análisis de las hojas de la planta. & Esta base será introducida a modelos de redes neuronales: densa, neuronal convolucional y neuronal convolucional con overfitting, usando el lenguaje Python y las bibliotecas: Keras y TensorFlow. Una vez entrenado el modelo, se procede al análisis de las imágenes que contienen la morfología de la planta y que servirán de entrada a una red neuronal para poder comparar los resultados y determinar cuál de los modelos presenta mejores resultados. & El modelo convolucional con overfitting presenta el mejor resultado de predicción, pero aun así, es un modelo limitado que podría ser reemplazado por otros modelos de mayor alcance, como ResNet50, CIFAR-10, VGG19. Al tener una cantidad de plagas tan limitada, es evidente que no se puede hacer un reconocimiento más detallado de las plagas, por lo que sería necesaria ampliar la base de datos \\
 \hline
-\caption*{\footnotesize Fuente: Elaboración del investigador}
+\caption*{\footnotesize Fuente: Elaboración propia}
 \end{longtable}
 
 A nivel nacional los diferentes modelos operativos en el contexto de la detección de plaga hace referencia a un modelo convolucional con overfitting que presenta los mejores resultados de predicción, pero se plantea la posibilidad de reemplazarlo por otros modelos de mayor alcance, como ResNet50, CIFAR-10 o VGG19.
@@ -128,6 +128,79 @@ A medida que iba surgiendo la tecnología de contenerización, se resolvió el d
 \item \textbf{Validación de datos:} Se genera en dos pasos, el primero corresponde al más básico es la calidad de los mismos, lo cual incluye verificar cantidad de nulos, el SLA (service level agreement) de actualización de los datos, que todos los datos sean del tipo esperado, entre otros. El segundo es el más complejo consiste en monitorear la distribución de los datos. Un cambio en la distribución puede ser originada por una falla en alguno de los pipelines o por cambios en los datos \citep{rivero2022}. 
 \end{itemize}
 
+Entre las diversas herramientas disponibles para el MLOps, se pueden clasificar en dos categorías distintas: las sencillas y las complejas. Las herramientas sencillas son particularmente útiles para facilitar el despliegue local, es decir, en un mismo ordenador o un servidor local. Este enfoque es especialmente adecuado para equipos pequeños de investigación, donde estos miembros del equipo pueden acceder desde diferentes computadoras de manera local. Estas herramientas sencillas representan el primer paso para llevar la solución a la fase de despliegue, especialmente en entornos de producción.
+
+Por otro lado, las herramientas complejas están diseñadas para gestionar mayores capacidades de cómputo. Estas pueden configurarse con capacidades específicas, e incluso el sistema puede autoajustarse según el tráfico y los requisitos de almacenamiento, incorporando la funcionalidad conocida como ``On Demand'', donde son capaces de autoescalar según las necesidades del momento. 
+
+Después de implementar las herramientas sencillas, se puede aprovechar lo creado para desplegar una aplicación. Esta aplicación, inicialmente desarrollada o creada localmente, puede integrarse con uno de los servicios en la nube más comunes y populares. Estos servicios en la nube, como AWS, Azure, GCP, son seleccionados debido a su amplia cuota de mercado y su uso generalizado en la actualidad. Esto permite llevar la aplicación creada localmente a aprovechar las capacidades y escalabilidad que ofrecen los servicios en la nube para su despliegue.
+
+\newpage
+
+La implementación de un monitoreo completo plantea ciertas consideraciones, especialmente cuando se considera la adopción de herramientas complejas. La complejidad de estas herramientas conlleva un aumento en los costos, ya que se aplican cargos por el conjunto completo de funcionalidades que ofrecen. En comparación, al optar por el uso de herramientas sencillas locales y utilizar solo una fracción de las herramientas complejas resulta más económico.
+
+Además del aspecto financiero, es crucial tener en cuenta que el uso de herramientas complejas implica una curva de aprendizaje significativa. Se requiere una inversión de tiempo y esfuerzo para adquirir los conocimientos necesarios y comprender cómo manipular eficazmente todo el ciclo del MLOps. Esta curva de aprendizaje elevada puede representar una desventaja, ya que impone una barrera para aquellos que buscan implementar estas herramientas de manera efectiva.
+
+En general, se han ido desarrollando muchas herramientas que se pueden utilizar para implementar la metodología de MLOps tanto de acceso libre (open source) o de pago, para usar localmente o desde internet. Y se deben escoger cada una con base a las necesidades del proyecto.
+
+\begin{figure}[h]
+	\centering
+	\caption{Herramientas que implementan ciclo completo de MLOps}
+	\includegraphics[width=0.8\textwidth]{resultados/herramientasMLOps.png}
+	\caption*{\footnotesize Fuente: \cite{neptune2024}}
+	\label{fig:figuraHerramientasMLOps}
+\end{figure}
+
+\newpage
+
+Dentro de las plataformas descritas en la imagen anterior (ver figura \ref{fig:figuraHerramientasMLOps}) se encuentra MetaFlow, esta plataforma en sí misma, es una herramienta gratuita, aunque algunas de sus funcionalidades pueden requerir pagos. Por ejemplo, el despliegue en internet podría estar sujeto a tarifas adicionales. Para completar todo el ciclo de vida del MLOps, es necesario considerar diversas herramientas, muchas de las cuales ofrecen características completas o parciales para gestionar eficazmente este ciclo.
+
+\begin{figure}[h]
+	\centering
+	\caption{Herramientas de análisis de datos y repositorio de código}
+	\includegraphics[width=0.7\textwidth]{resultados/herramientasAnaRepo.png}
+	\caption*{\footnotesize Fuente: Elaboración propia}
+	\label{fig:figuraHerramientasAnaRepo}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h]
+	\centering
+	\caption{Herramientas de registro de modelo, versionado del modelo y versionado de datos}
+	\includegraphics[width=0.7\textwidth]{resultados/herramientasRegModDatos.png}
+	\caption*{\footnotesize Fuente: Elaboración propia}
+	\label{fig:figuraHerramientasRegModDatos}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\caption{Herramientas para Construcción de API y Construcción de aplicación Web}
+	\includegraphics[width=0.6\textwidth]{resultados/herramientasDespApiApp.png}
+	\caption*{\footnotesize Fuente: Elaboración propia}
+	\label{fig:figuraHerramientasDespApiApp}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h]
+	\centering
+	\caption{Herramientas de Feature Store y Monitoreo del Modelo}
+	\includegraphics[width=0.9\textwidth]{resultados/herramientasFeaMon.png}
+	\caption*{\footnotesize Fuente: Elaboración propia}
+	\label{fig:figuraHerramientasFeaMon}
+\end{figure}
+
+Continuando con el tema, centrémonos ahora en las herramientas que simplifican los despliegues de una aplicación o una API de manera automatizada. La necesidad de estas herramientas radica en lo tedioso que implicaría realizar despliegues manualmente. En un enfoque manual, se tendría que especificar la imagen que debe utilizarse desde un contenedor, crear el contenedor, y posteriormente enviarlo a la nube. Luego, sería necesario obtener la URL para su uso. Este proceso, aunque es posible de realizar manualmente, se vuelve más eficiente y menos propenso a errores al utilizar herramientas como GitHub Actions, la cual es una herramienta de automatización integrada con GitHub.
+
+Algunas características clave y conceptos asociados con GitHub son:
+
+\begin{itemize}
+	\item \textbf{Repositorios:} Son espacios donde se almacenan los archivos de un proyecto,  junto  con  la  información  de  seguimiento  de  versiones.  Cada  proyecto  en GitHub se guarda en un repositorio.
+	\item \textbf{Control de Versiones:} GitHub utiliza Git, un sistema de control de versiones distribuido. Esto significa que cada desarrollador o miembro de un equipo, que trabaja en un proyecto tiene una copia completa del historial de cambios del proyecto en su  máquina  local.  Git  permite  rastrear  cambios,  fusionar  contribuciones  y  revertir  a versiones anteriores del código.
+	\item \textbf{Automatización:} GitHub Actions es un servicio que permite a los ingenieros de software automatizar diversas tareas en respuesta a eventos específicos dentro del repositorio. En el contexto del proyecto, las tareas se configuran mediante flujos de trabajo definidos en archivos YAML. Estos flujos de trabajo simplifican la ejecución de pruebas, la construcción de una API o una aplicación, junto con los despliegues. GitHub Actions no solo facilita la automatización de estos procesos, sino que también respalda la integración continua y el despliegue continuo.
+	
+	Esta integración automatizada con GitHub Actions no solo agiliza el ciclo de desarrollo, sino que también asegura la coherencia y confiabilidad en el proceso de despliegue de una aplicación o una API. Con esta herramienta, se logra una gestión eficiente y automatizada de todo el ciclo de vida del modelo para llevarlo a producción, desde la integración de cambios hasta la entrega y despliegue en un proveedor de servicios en la nube.
+\end{itemize}
 
 \subsection{Modelo de Machine Learning}
 
@@ -156,16 +229,16 @@ Por esta razón con el Machine Learning es posible establecer tres tipos de mode
 \hline
 \textbf{Modelo} & \textbf{Características} \\
 \hline
-Geométrico & El espacio de instancias es el conjunto de todas las instancias posibles o descriptibles, estén presentes en nuestro conjunto de datos o no. Por lo general, este conjunto tiene alguna estructura geométrica. Por ejemplo, si todas las características son numéricas, entonces se puede usar cada característica como una coordenada en un sistema de coordenadas cartesiano. \\
+Geométrico & El espacio de instancias abarca la totalidad de las configuraciones concebibles, ya sea que estén representadas en nuestro conjunto de datos o no. Suele exhibir una estructura geométrica definida. Por ejemplo, cuando todas las características son de naturaleza numérica, cada una puede interpretarse como una coordenada en un sistema cartesiano. \\
 \hline
-Probabilístico & Muchos de estos modelos se basan en la siguiente idea. Sea X las variables que se conoce por ejemplo, los valores de las características de nuestra instancia; y deje que, Y denote las variables de destino que nos interesan, por ejemplo, la clase de la instancia. La pregunta clave en el aprendizaje automático es cómo modelar la relación entre X e Y. \\
+Probabilístico & Numerosos modelos se sustentan en el siguiente concepto fundamental: Consideremos X como las variables que describen, por ejemplo, las características de una instancia conocida; mientras que Y representa las variables objetivo que nos conciernen, como la clase a la que pertenece dicha instancia. La esencia del aprendizaje automático radica en la capacidad de modelar la interrelación entre X e Y. \\
 \hline
-Lógico & Se inspira en la informática y la ingeniería. A este tipo lo llamo “lógico” porque los modelos de este tipo pueden traducirse fácilmente en reglas comprensibles para los humanos, como si \begin{verbatim}
+Lógico & Toma su inspiración de disciplinas como la informática y la ingeniería. Se denomina ``lógico" debido a que sus modelos pueden ser traducidos de manera sencilla en reglas comprensibles para los seres humanos, por ejemplo: \begin{verbatim}
 if Viagra=1 then Class=Y=spam
 \end{verbatim} \\
 \hline
 \end{tabular}
-\caption*{\footnotesize Fuente: \citet{salamanca2021}}
+\caption*{\footnotesize Fuente: \citet[p.~43]{salamanca2021}}
 \end{table}
 
 \begin{table}[htbp]
@@ -189,7 +262,7 @@ Aprendizaje semi supervisado & El objetivo es la clasificación, pero la entrada
 \end{minipage} \\
 \hline
 \end{tabular}
-\caption*{\footnotesize Fuente: \citet{salamanca2021}}
+\caption*{\footnotesize Fuente: \citet[p.~44-45]{salamanca2021}}
 \end{table}
 
 \newpage
@@ -202,7 +275,17 @@ Autores como \citet{contreras2022}, \citet{salamanca2021} y \citet{jara2016} exp
     \item Redes neuronales: Estas técnicas se basan en modelos inspirados en el funcionamiento del cerebro humano. Las redes neuronales profundas, como las redes neuronales convolucionales (CNN) y las redes neuronales recurrentes (RNN), han logrado grandes avances en áreas como la visión por computadora y el procesamiento del lenguaje natural \citep{salamanca2021}.
 \end{enumerate}
 
-Estos métodos de predicción en el Machine Learning han demostrado ser eficientes en una amplia gama de aplicaciones, desde la detección de fraudes hasta el diagnóstico médico y la recomendación de productos. La elección del método adecuado depende del tipo de datos, el problema a resolver y los objetivos específicos del proyecto de Machine Learning.
+Estos métodos de predicción en el Machine Learning han demostrado ser eficientes en una amplia gama de aplicaciones, desde la detección de fraudes hasta el diagnóstico médico y la recomendación de productos. La elección del método adecuado depende del tipo de datos, el problema a resolver y los objetivos específicos del proyecto de Machine Learning. Para verificar su eficiencia, estos métodos deben ser validados por una matriz de confusión la cual contiene:
+
+\begin{figure}[h]
+	\centering
+	\caption{Matriz de confusión para la evaluación de los modelos}
+	\includegraphics[width=1\textwidth]{resultados/evaModelos.png}
+	\caption*{\footnotesize Fuente: Elaboración propia}
+	\label{fig:figuraEvaModelos}
+\end{figure}
+
+\newpage
 
 
 \subsubsection{Cultivo de aguacate Hass}
@@ -217,9 +300,9 @@ Además de su adaptabilidad y productividad, el aguacate Hass presenta resistenc
 
 \subsubsection{Plagas Stenoma catenifer y heilipus lauri}
 
-El cultivo del aguacate puede verse amenazado por diversas plagas que pueden afectar tanto las hojas, los frutos como las raíces de la planta, según  el Dane  (\citeyear{dane2016cultivo}) las plagas más comunes son el ácaro del aguacate entre los que se encuentran el Heilipus lauri y el Stenoma catenifer, quienes provoca un daño en la apariencia de la planta y puede reducir su capacidad de fotosíntesis, para controlar esta plaga, se pueden emplear insecticidas específicos o realizar una poda adecuada de las hojas afectadas.
+El cultivo del aguacate puede verse amenazado por diversas plagas que pueden afectar tanto las hojas, los frutos como las raíces de la planta, según  el Dane  (\citeyear{dane2016cultivo}) las plagas más comunes son el ácaro del aguacate entre los que se encuentran el \textit{Heilipus lauri} y el \textit{Stenoma catenifer}, quienes provoca un daño en la apariencia de la planta y puede reducir su capacidad de fotosíntesis, para controlar esta plaga, se pueden emplear insecticidas específicos o realizar una poda adecuada de las hojas afectadas.
 
-Para \citet{carabali2022}, en el cultivo del aguacate Hass la Stenoma catenifer (ver figura \ref{fig:figuraStenoma}) desarrolla su polilla al alimentarse de los frutos del aguacate, perforando galerías y causando daños considerables en la calidad de la cosecha. Asimismo la plaga del barrenador del hueso del aguacate Heilipus spp (ver figura \ref{fig:figuraHeilipus}), puede causar daños graves al cultivo, las  larvas de este insecto se alimentan del interior del hueso del aguacate, lo que afecta el desarrollo adecuado del fruto \citep{carabali2022}.
+Para \citet{carabali2022}, en el cultivo del aguacate Hass la \textit{Stenoma catenifer} (ver figura \ref{fig:figuraStenoma}) desarrolla su polilla al alimentarse de los frutos del aguacate, perforando galerías y causando daños considerables en la calidad de la cosecha. Asimismo la plaga del barrenador del hueso del aguacate \textit{Heilipus} spp (ver figura \ref{fig:figuraHeilipus}), puede causar daños graves al cultivo, las  larvas de este insecto se alimentan del interior del hueso del aguacate, lo que afecta el desarrollo adecuado del fruto \citep{carabali2022}.
 
 \begin{figure}[h]
 \centering

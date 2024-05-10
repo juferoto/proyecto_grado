@@ -4,7 +4,7 @@
 
 \subsubsection{Exploración de datos}
 
-El análisis exploratorio de datos partió de las 744 fotografía del cultivo de aguacate Hass con las cuales se reveló información valiosa sobre la distribución y características de las imágenes. Al examinar la distribución, se observa dos parámetros en la información, el primero corresponde a las imágenes que no presentan el impacto de las plagas (50 imágenes) y el segundo las imágenes que evidencian el proceso de la plaga en el cultivo (694 imágenes). Esto sugiere la necesidad de técnicas de pre-procesamiento para normalizar la información antes de cualquier análisis.
+El análisis exploratorio de datos partió de las 744 fotografías del cultivo de aguacate Hass con las cuales se reveló información valiosa sobre la distribución y características de las imágenes. Al examinar la distribución, se observa dos parámetros en la información, el primero corresponde a las imágenes que no presentan el impacto de las plagas (50 imágenes) y el segundo las imágenes que evidencian el proceso de la plaga en el cultivo (694 imágenes). Esto sugiere la necesidad de técnicas de pre-procesamiento para normalizar la información antes de cualquier análisis.
 
 Por esta razón, se estableció dos carpetas de información donde una de ellas se consignan las fotografías que presentan las características de las plantas sana y en la otra carpeta se encuentran las fotografías que muestran las tipologías del impacto de las plagas.
 
@@ -17,36 +17,38 @@ El código en Python está diseñado para la visualización de imágenes de cult
 \begin{figure}[h]
 \centering
 \caption{Exploración de datos}
-\includegraphics[width=0.8\textwidth]{resultados/expDatos.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
+\includegraphics[width=1\textwidth]{resultados/expDatos.png}
+\caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraExpDatos}
 \end{figure}
 
 Al realizar un análisis exploratorio de datos para comprender la distribución y características de las imágenes se puede señalar que, las imágenes sin plagas corresponden al 6,72\% y las imágenes con plagas el 93,28\% como se describe a continuación:
 
+\newpage
+
 \begin{figure}[h]
 \centering
 \caption{Distribución porcentual de las categorías de las imágenes}
-\includegraphics[width=0.6\textwidth]{resultados/distPorcentual.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
+\includegraphics[width=1\textwidth]{resultados/distPorcentual.png}
+\caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraDistPorcentual}
 \end{figure}
 
 Se puede decir que las imágenes que generan mayor información corresponden a las que tienen plagas. Asimismo, la distribución de tamaño de imagen se observa que, identifican imágenes con un ancho de 4.000 píxeles por 3.000 píxeles de altura o por el contrario 3.000 de ancho por 4.000 de altura, donde se tomaron las fotografías tanto verticales como horizontales manteniendo esa rotación.
 
-\newpage
-
 Por lo tanto, se generó el código correspondiente para generar tanto la distribución de imágenes por categoría como la distribución por tamaños, y por otro lado, se generó un código para saber cómo está distribuido por cada alto y ancho de las imágenes. 
 
-Como se puede ver en la imagen que el 87,6\% de las imágenes presentan una resolución de 4.000 píxeles por ancho y por el lado de las alturas más del 87,6\% tienen 3000 píxeles de alto \footnote{El código para el tratamiento de imágenes por categoría y alturas se encuentra en GitHub \href{https://github.com/juferoto/mlops_project/blob/master/notebooks/analisisExploratorio.ipynb}{aquí}}.
+Como se puede ver en la figura \ref{fig:figuraDistAlturas} que el 87,6\% de las imágenes presentan una resolución de 4.000 píxeles por ancho y por el lado de las alturas más del 87,6\% tienen 3000 píxeles de alto \footnote{El código para el tratamiento de imágenes por categoría y alturas se encuentra en GitHub \href{https://github.com/juferoto/mlops_project/blob/master/notebooks/analisisExploratorio.ipynb}{aquí}}.
 
 \begin{figure}[h]
 \centering
 \caption{Distribución alto y ancho de las imágenes}
-\includegraphics[width=0.7\textwidth]{resultados/distAlturas.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
+\includegraphics[width=1\textwidth]{resultados/distAlturas.png}
+\caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraDistAlturas}
 \end{figure}
+
+\newpage
 
 \subsubsection{Remoción de fondo de imagen}
 
@@ -62,7 +64,7 @@ Todas las 744 imágenes presentaban un fondo que podría introducir ruido durant
 \centering
 \caption{Proceso de remoción de fondo de las imágenes}
 \includegraphics[width=8cm]{resultados/remFondo.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
+\caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraRemFondo}
 \end{figure} 
 
@@ -70,7 +72,7 @@ La efectividad de este código asegura que las imágenes estén listas para ser 
 
 \subsubsection{Procesamiento de imágenes}
 
-En el procesamiento de la segmentación de imágenes como se viene señalando en los anteriores momentos, permite resaltar la zona en donde se encuentra las caracteristicas propias de la plaga. El proceso tiene como fin facilitarle al algoritmo de Machine learning interpretar las imágenes. Este enfoque se integra en la fase de pre-procesamiento para resaltar la zona afectada por la plaga, simplificando la tarea del algoritmo y mejorando su capacidad de interpretación.
+En el procesamiento de la segmentación de imágenes como se viene señalando en los anteriores momentos, permite resaltar la zona en donde se encuentra las características propias de la plaga. El proceso tiene como fin facilitarle al algoritmo de Machine learning interpretar las imágenes. Este enfoque se integra en la fase de pre-procesamiento para resaltar la zona afectada por la plaga, simplificando la tarea del algoritmo y mejorando su capacidad de interpretación.
 
 A cada una de estas 694 imágenes que presentan afectaciones de la plaga se trazó un polígono para saber en dónde estaba ubicada la plaga, este polígono genera unas coordenadas que luego van a ser interpretadas por uno de los algoritmos usados para el proyecto.
 
@@ -80,7 +82,7 @@ A cada una de estas 694 imágenes que presentan afectaciones de la plaga se traz
 \centering
 \caption{Proceso de segmentación de las imágenes}
 \includegraphics[width=0.7\textwidth]{resultados/proSeg.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
+\caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraProSeg}
 \end{figure}
 
@@ -90,7 +92,7 @@ Posteriormente se utilizó la aplicación DataTorch para hacer el trazado de los
 \centering
 \caption{Proceso de segmentación de las imágenes con DataTorch}
 \includegraphics[width=0.7\textwidth]{resultados/proSeg2.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
+\caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraProSegDatatorch}
 \end{figure}
 
@@ -108,7 +110,7 @@ Dividir el conjunto de datos de las imágenes con plaga en conjuntos de entrenam
 \centering
 \caption{Proceso de entrenamiento y validación}
 \includegraphics[width=1\textwidth]{resultados/proEntrenamiento.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
+\caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraProEntrenamiento}
 \end{figure}
 
@@ -152,17 +154,7 @@ El pre-procesamiento adicional correspondió a normalizar el tamaño de las imá
 
 También habrá una normalización del modelo con datos nuevos, es decir que, si es necesario ingresar datos nuevos al modelo, pasaran por esta normalización cada uno de los datos en una resolución determinada.
 
-Para la normalización de las dimensiones se definió un tamaño fijo de 640 píxeles, tanto de ancho como de alto, debido a que Yolo en su versión 8 maneja valores por defecto en esta resolución. Por esta razón, se mantuvo la misma resolución en los dos modelos seleccionados, tanto para el Yolo, que ya tiene por defecto este valor, como en la regresión logística. El siguiente código hace referencia a la normalización del tamaño de las imágenes, pero únicamente para el modelo de regresión logística, debido a que Yolo internamente hace esta normalización.
-
-\begin{figure}[h]
-\centering
-\caption{normalización de las imágenes para la regresión logística}
-\includegraphics[width=0.6\textwidth]{resultados/normRegresion.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
-\label{fig:figuraNormRegresion}
-\end{figure}
-
-\newpage
+Para la normalización de las dimensiones se definió un tamaño fijo de 640 píxeles, tanto de ancho como de alto, debido a que Yolo en su versión 8 maneja valores por defecto en esta resolución. Por esta razón, se mantuvo la misma resolución en los dos modelos seleccionados, tanto para el Yolo, que ya tiene por defecto este valor, como en la regresión logística.
 
 \subsubsection{Implementación del modelo de regresión logística}
 
@@ -170,19 +162,19 @@ Para realizar la implementación del modelo de regresión logística, se realiz�
 
 \begin{figure}[h]
 \centering
-\caption{proceso de normalización de imágenes}
+\caption{Proceso de normalización de imágenes}
 \includegraphics[width=0.8\textwidth]{resultados/proNormalizacion.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
+\caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraProNormalizacion}
 \end{figure}
 
+\newpage
+
 Se realizó un submuestreo con validación cruzada (cross-validated subsampling). En este enfoque, se realiza repetidamente un submuestreo de la clase mayoritaria para equilibrar las clases y se evalúa el modelo en cada iteración utilizando la clase minoritaria. Luego, se promedian los resultados obtenidos en todas las iteraciones.
 
-Este enfoque es especialmente útil cuando se trata con conjuntos de datos desequilibrados, donde una clase tiene muchas más datos (imágenes) que otra. Al realizar varias iteraciones y calcular promedios, se busca obtener una evaluación más robusta del rendimiento del modelo, ya que cada iteración puede tener una muestra diferente de la clase mayoritaria.
+Este enfoque es especialmente útil cuando se trata con conjuntos de datos desequilibrados, donde una clase tiene muchas más datos (imágenes) que otra. Al realizar varias iteraciones y calcular promedios, se busca obtener una evaluación más robusta del rendimiento del modelo, ya que cada iteración puede tener una muestra diferente de la clase mayoritaria\footnote{El código desarrollado para el modelo de regresión logística se encuentra \href{https://github.com/juferoto/mlops_project/blob/master/notebooks/modeloRegresion.ipynb}{aquí}.}.
 
-En el desarrollo de los scripts para implementar el modelo de regresión logística se realizan los siguientes pasos:
-
-\newpage
+En el desarrollo de los scripts para implementar el modelo de regresión logística se realizaron los siguientes pasos:
 
 \begin{enumerate}
     \item Se va a repetir el proceso de entrenamiento y evaluación 10 veces.
@@ -200,15 +192,7 @@ En el desarrollo de los scripts para implementar el modelo de regresión logíst
 
 \newpage
 
-\begin{figure}[h]
-\centering
-\caption{Código desarrollado para el modelo de regresión logística}
-\includegraphics[width=1\textwidth]{resultados/codModelRegresion.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
-\label{fig:figuraCodModelRegresion}
-\end{figure}
-
-Para el desarrollo de los scripts que implementan el modelo Yolo V8 se realizaron los siguientes pasos:
+Por otro lado, para el desarrollo de los scripts que implementan el modelo Yolo V8 se realizaron los siguientes pasos:
 
 \begin{enumerate}
     \item Se establece que se van a manejar por convención del modelo Yolo, dos particiones (entrenamiento – train y validación – validation) (ver figura \ref{fig:figuraConvencionYolo}).
@@ -225,19 +209,21 @@ Para el desarrollo de los scripts que implementan el modelo Yolo V8 se realizaro
 El concepto de ``épocas'' se refiere a la cantidad de veces que todo el conjunto de datos se ha pasado hacia adelante y hacia atrás a través de la red neuronal durante el proceso de entrenamiento. Cada época representa una iteración completa a través de todo el conjunto de datos.
 Manejar múltiples épocas durante el entrenamiento puede tener varios beneficios:
 
-\textbf{Aprendizaje más Profundo:}
+\newpage
 
-Las redes neuronales, incluidas las arquitecturas complejas como YOLO, pueden aprender patrones más profundos y sutiles a medida que se exponen repetidamente a los datos. Las épocas adicionales permiten que el modelo ajuste sus pesos en consecuencia y mejore su capacidad para generalizar a patrones más complejos.
+\textbf{Aprendizaje más profundo:}
 
-\textbf{Mejora de la Generalización:}
+Las redes neuronales, incluidas las arquitecturas complejas como YOLO, pueden aprender patrones más profundos y sutiles a medida que se exponen repetidamente a los datos. Las épocas adicionales permiten que el modelo ajuste sus pesos en consecuencia y mejore su capacidad para generalizar a patrones más complejos. \newline
 
-El entrenamiento con más épocas puede ayudar a mejorar la capacidad del modelo para generalizar a datos no vistos. Esto es particularmente útil para evitar el sobreajuste, donde el modelo memoriza los datos de entrenamiento en lugar de aprender patrones, ubicaciones o lugares generales.
+\textbf{Mejora de la generalización:}
 
-\textbf{Ajuste Fino de Parámetros:}
+El entrenamiento con más épocas puede ayudar a mejorar la capacidad del modelo para generalizar a datos no vistos. Esto es particularmente útil para evitar el sobreajuste, donde el modelo memoriza los datos de entrenamiento en lugar de aprender patrones, ubicaciones o lugares generales. \newline
 
-Las épocas adicionales permiten ajustar finamente los parámetros del modelo. A medida que el modelo ve los datos varias veces, puede hacer ajustes más precisos en los pesos para mejorar el rendimiento en el conjunto de entrenamiento.
+\textbf{Ajuste fino de parámetros:}
 
-\textbf{Mejora de Métricas de Rendimiento:}
+Las épocas adicionales permiten ajustar finamente los parámetros del modelo. A medida que el modelo ve los datos varias veces, puede hacer ajustes más precisos en los pesos para mejorar el rendimiento en el conjunto de entrenamiento. \newline
+
+\textbf{Mejora de métricas de rendimiento:}
 
 En muchos casos, las métricas de rendimiento (como precisión, recall, F1-score, etc.) pueden mejorar con un entrenamiento más prolongado. Las métricas estabilizan y pueden alcanzar su mejor rendimiento después de varias épocas.
 
@@ -249,7 +235,7 @@ Manejar 10 épocas podría ser mejor que manejar pocas épocas, esto puede depen
 \centering
 \caption{Código convención del modelo Yolo}
 \includegraphics[width=0.2\textwidth]{resultados/convencionYolo.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
+\caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraConvencionYolo}
 \end{figure}
 
@@ -257,22 +243,22 @@ Manejar 10 épocas podría ser mejor que manejar pocas épocas, esto puede depen
 \centering
 \caption{Código transformación de formato Coco a formato Yolo}
 \includegraphics[width=0.8\textwidth]{resultados/cocoAYolo.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
+\caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraCocoAYolo}
 \end{figure}
 
 \newpage
 
-Dentro del código anterior se especifica el cambio del formato Coco a Yolo partiendo de las categorías establecidas con la plaga y si no tiene plaga no se denota. Como se describe en el código se escribe las dimensiones de ancho y alto para las anotaciones, donde dice que para una imagen dentro del polígono se encuentra la plaga denotada en los cuatro lados expresados en cuatro valores (x, y, w, h) que son la coordenada X y Y en donde se ubica el extremo superior del polígono a marcar, como el ancho y alto en donde se encuentra la placa.
+Dentro del código anterior se especifica el cambio del formato Coco a Yolo partiendo de las categorías establecidas con la plaga y si no tiene plaga no se denota. Como se describe en el código las dimensiones de ancho y alto para las anotaciones, donde dice que para una imagen dentro del polígono se encuentra la plaga denotada en los cuatro lados expresados en cuatro valores (x, y, w, h) que son la coordenada X y Y en donde se ubica el extremo superior del polígono a marcar, como el ancho y alto en donde se encuentra la placa.
 
-Estos parámetros de la cooredanada X y Y del polígono en formato Yolo, se posicionan en el centro de la imagen donde está ubicado el objeto, en este caso se mueve a su centro, y esto se hace con una fórmula matemática  como se observa en la siguiente imagen:
+Estos parámetros de la coordenada X y Y del polígono en formato Yolo, se posicionan en el centro de la imagen donde está ubicado el objeto, en este caso se mueve a su centro, y esto se hace con una fórmula matemática  como se observa en la siguiente imagen:
 
 
 \begin{figure}[h]
 \centering
 \caption{Proceso de cambio de Coco a Yolo}
 \includegraphics[width=1\textwidth]{resultados/camCocoAYolo.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
+\caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraCamCocoAYolo}
 \end{figure}
 
@@ -287,7 +273,7 @@ Después de realizar la transformación, el procedimiento implica identificar y 
 \centering
 \caption{Identificación del polígono cambiado de Coco a Yolo}
 \includegraphics[width=1\textwidth]{resultados/poligonoCocoAYolo.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
+\caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraPoligonoCocoAYolo}
 \end{figure}
 
@@ -297,74 +283,43 @@ Este proceso corresponde a la conversión del formato Coco a Yolo. En otras pala
 
 \subsubsection{Implementación del modelo Yolo}
 
-La siguiente imagen \ref{fig:figuraCodModelYolo} hace referencia a la implementación para el modelo Yolo. En donde:
+En el proceso de implementación del modelo Yolo\footnote{El código correspondiente a la implementación del modelo Yolo se encuentra disponible \href{https://github.com/juferoto/mlops_project/blob/master/notebooks/modeloYolo.ipynb}{aquí}.}, se llevan a cabo las siguientes etapas:
 
 \begin{itemize}
-    \item Los puntos 1 y 2 hacen referencia al preprocesamiento que se le van a aplicar a las imágenes para el modelo Yolo.
-    \item El punto 3 se observa que se carga el modelo en el código Yolo V8 en su versión small, definiendo las épocas, en este caso 10, las cuales van a procesar la información, teniendo en cuenta que entre más épocas mayor es el costo computacional para obtener un resultado. 
+	\item \textbf{Preprocesamiento de imágenes:} Se aplican diferentes técnicas de preprocesamiento a las imágenes antes de utilizarlas en el modelo Yolo.
+
+	\item \textbf{Carga del modelo:} Se carga el modelo Yolo V8 en su versión small, especificando las épocas de entrenamiento, dentro del parámetro de la función,  en  este  caso  10. Es importante tener en cuenta que un número mayor de épocas aumenta el costo computacional para obtener un resultado.
 \end{itemize}
 
 \newpage
 
-\begin{figure}[h]
-\centering
-\caption{Código desarrollado para el modelo Yolo V8}
-\includegraphics[width=0.4\textwidth]{resultados/codModelYoloP1.png}
-\includegraphics[width=0.4\textwidth]{resultados/codModelYoloP2.png}
-\includegraphics[width=0.4\textwidth]{resultados/codModelYoloP3.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
-\label{fig:figuraCodModelYolo}
-\end{figure}
-
 \subsubsection{Evaluación de los modelos}
 
-Después de haber entrenado los modelos y pasar a predecir la información que se tenga del  conjunto de prueba, es decir identificar qué tanto aprendió y cuál fue el porcentaje de aprendizaje que se tuvo, para ambos casos se manejó una matriz de confusión donde se tienen cuatro lados: falso positivo, falso negativo, verdadero negativo, verdadero positivo (ver figura \ref{fig:figuraEvaModelos}).
-
-\newpage
-
-\begin{figure}[h]
-\centering
-\caption{Matriz de confusión para la evaluación de los modelos}
-\includegraphics[width=1\textwidth]{resultados/evaModelos.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
-\label{fig:figuraEvaModelos}
-\end{figure}
+Después de haber entrenado los modelos y pasar a predecir si hay plaga o no hay plaga que se tenga del conjunto de prueba, es decir identificar qué tanto aprendió y cuál fue el porcentaje de aprendizaje que se tuvo, para ambos casos se manejó una matriz de confusión donde se tienen cuatro lados: falso positivo, falso negativo, verdadero negativo, verdadero positivo (ver figura \ref{fig:figuraEvaModelos}).
 
 Una interpretación efectiva de la matriz de confusión en un modelo Yolo es esencial para entender cómo se comporta en términos de identificación y ubicación de objetos en las imágenes de entrada. Al analizar los elementos de la matriz, los científicos de datos pueden ajustar el modelo para mejorar su rendimiento y garantizar una detección precisa de objetos en diferentes escenarios y condiciones.
 
-Para la regresión logística al tener 10 iteraciones se calculó el promedio de esas matrices de confusión, es decir que cada vez que se pasaba el modelo en este subconjunto de datos de 100 imágenes se estaba calculando una matriz de confusión, se van guardando cada una de esas matrices y al final lo que se hace es promediarlas, para tener los resultados de exactitud, precisión y sensibilidad como se describe en la imagen \ref{fig:figuraEjeProMatrizConfusion}.
-
-
-\newpage
+Para la regresión logística al tener 10 iteraciones se calculó el promedio de esas matrices de confusión, es decir que cada vez que se pasaba el modelo en este subconjunto de datos de 100 imágenes se estaba calculando una matriz de confusión, se van guardando cada una de esas matrices y al final lo que se hace es promediarlas por componente, para tener los resultados de exactitud, precisión y sensibilidad como se describe en la figura \ref{fig:figuraEjeProMatrizConfusion}.
 
 \begin{figure}[h]
 \centering
 \caption{Resultado promedio de la matriz de confusión del modelo de regresión}
 \includegraphics[width=1\textwidth]{resultados/ejeProMatrizConfusion.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
+\caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraEjeProMatrizConfusion}
 \end{figure}
 
-El objetivo es determinar la cantidad de datos que estaban etiquetados como afectados por una plaga durante la prueba del modelo. En este escenario, se utiliza un subconjunto de 100 imágenes para llevar a cabo las pruebas, y se espera que dicho subconjunto represente un porcentaje específico del total correspondiente al 20\% para las pruehas.
-
-Además, la parte de evaluación del modelo de regresión logística, después de haber hecho las iteraciones de la información para entrenar el modelo, en cada iteración se fue almacenando su matriz de confusión. Este proceso obtiene la matriz de confusión de cada uno de las iteraciones, las cuales se promedian y se obtienen el cálculo de la exactitud (accuracy), la precisión y la sensibilidad (recall), como se describe en el código de la imagen \ref{fig:figuraCodEvaModelRegresion}. 
-
-Entonces eso quiere decir que cuando se habla de precisión se especifica la cantidad de casos positivos detectados, lo que significa que para este caso fueron realmente positivos detectados en un 93.4\%, una sensibilidad que corresponde a la proporción de los casos positivos correctamente identificados que fue de un 90.4\%. Para el caso de la exactitud se evidenció un 92.5\%, es decir la cantidad de predicciones correctas esta en este porcentaje, siendo un buen promedio de predicción para validar si una imagen tiene o no tiene plaga en un 92.5\%.
-
 \newpage
 
-\begin{figure}[h]
-\centering
-\caption{Código evaluación del modelo utilizando regresión logística en el conjunto de prueba.}
-\includegraphics[width=1\textwidth]{resultados/codEvaModelRegresion.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
-\label{fig:figuraCodEvaModelRegresion}
-\end{figure}
+El objetivo es determinar la cantidad de datos que estaban etiquetados como afectados por una plaga durante la prueba del modelo. En este escenario, se utiliza un subconjunto de 100 imágenes para llevar a cabo las pruebas, y se espera que dicho subconjunto represente un porcentaje específico del total correspondiente al 20\% para las pruehas. \newline
 
-Si se volviera a ejecutar el programa, es posible que la información varíe ligeramente, pero en términos generales, los resultados que se presentan corresponden a la ejecución más reciente del algoritmo. Es importante destacar que las variaciones observadas en la exactitud, la precisión y la sensibilidad son mínimas. Estas fluctuaciones, aunque pueden existir cambios sutiles, la diferencia no es significativa.
+Entonces eso quiere decir que cuando se habla de precisión se especifica la cantidad de casos positivos detectados, lo que significa que para este caso fueron realmente positivos detectados en un 93.4\%, una sensibilidad que corresponde a la proporción de los casos positivos correctamente identificados que fue de un 90.4\%. Respecto a la exactitud, se registró un valor del 92.5 \%, lo que indica el porcentaje de predicciones correctas realizadas. Este resultado demuestra un sólido promedio de predicción para determinar si una imagen presenta o no presenta una plaga, con un nivel de confianza del 92.5\%. \newline
 
-En Yolo V8, ya no es necesario clasificar las imágenes que no contienen plagas. Ahora, el enfoque se centra únicamente en clasificar las imágenes que efectivamente presentan plagas. Cuando se procesa la información que carece de plagas, el algoritmo simplemente ignora o descarta dicha información, ya que el objetivo principal consiste en identificar si una imagen específica del conjunto de prueba contiene o no una subimagen, polígono o recuadro que pueda representar una plaga. En otras palabras, el propósito es determinar si dentro de la representación visual de un aguacate existe o no la presencia de una plaga. El enfoque se ha optimizado para dirigir la atención exclusivamente a las instancias relevantes, simplificando el proceso de clasificación y mejorando la eficiencia del modelo.
+Además, la parte de evaluación del modelo de regresión logística, después de haber hecho las iteraciones de la información para entrenar el modelo, en cada iteración se fue almacenando su matriz de confusión. Este proceso obtiene la matriz de confusión de cada una de las iteraciones, las cuales se promedian y se obtienen el cálculo de la exactitud (accuracy), la precisión y la sensibilidad (recall)\footnote{El código de evaluación del modelo utilizando regresión logística en el conjunto de prueba se encuentra \href{https://github.com/juferoto/mlops_project/blob/master/notebooks/modeloRegresion.ipynb}{aquí}.}. \newline
 
+Si se volviera a ejecutar el programa, es posible que la información varíe ligeramente, pero en términos generales, los resultados que se presentan corresponden a la ejecución más reciente del algoritmo. Es importante destacar que las variaciones observadas en la exactitud, la precisión y la sensibilidad son en promedio de 0.7\% para el accuracy, 0.6\% para la precisión y 0.9\% para el recall. Estas fluctuaciones, aunque pueden existir cambios sutiles, la diferencia no es significativa. \newline
+
+En Yolo V8, el enfoque se centra únicamente en clasificar las imágenes que efectivamente  presentan plagas. Cuando se procesa la información que carece de plagas, el algoritmo  simplemente ignora o descarta dicha información, ya que el objetivo principal consiste en  identificar el conjunto de prueba que contiene o no una subimagen del polígono o recuadro que pueda representar una plaga. En otras palabras, el propósito es determinar si dentro de la representación visual de un aguacate existe o no la presencia de una plaga.
 
 \newpage
 
@@ -373,39 +328,50 @@ En Yolo V8, ya no es necesario clasificar las imágenes que no contienen plagas.
 \caption{Resultado del modelo Yolo V8}
 \includegraphics[width=1\textwidth]{resultados/ejeProMatrizConfusionYolo.png}
 \includegraphics[width=1\textwidth]{resultados/resYolo.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
+\caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraEjeProMatrizConfusion}
 \end{figure}
 
 Después de realizar la evaluación, observamos que la sensibilidad (recall) alcanzó un 90\%, indicando que el 90\% de los casos positivos fueron correctamente identificados respecto al total de imágenes. La precisión, que mide la proporción de casos positivos correctamente detectados entre las predicciones positivas, se situó en un sólido 98\%. Por otro lado, la exactitud (accuracy), que representa la cantidad general de predicciones correctas, se registró en un 88\%. Esto implica que, aunque se logró una alta precisión, hubo algunas predicciones incorrectas, especialmente en casos específicos evaluados por el modelo Yolo.
 
-
 \newpage
 
-Es importante destacar que la evaluación se llevó a cabo con imágenes que tenian y carecían de plagas, es decir, imágenes consideradas como ``sanas''. Además, es relevante señalar que la matriz de confusión se generó de manera automática, proporcionando una representación visual detallada de los resultados de la evaluación.
+Es importante destacar que la evaluación se llevó a cabo con imágenes que tenían y carecían de plagas, es decir, imágenes consideradas como ``sanas''. Además, es relevante señalar que la matriz de confusión se generó de manera automática con la librería, proporcionando una representación visual detallada de los resultados de la evaluación. \newline
 
-Yolo genera imágenes y proporciona métricas clave como precisión, recall y curvas de aprendizaje por época. Al analizar las estadísticas por época, se observa una progresión significativa en la precisión a lo largo del entrenamiento. En las primeras épocas, la precisión fue baja, alcanzando solo el 14.1\% en la primera y el 2\% en la segunda. Sin embargo, a partir de la tercera época, se observa un aumento marcado, llegando al 66\% en la época 6 y alcanzando un impresionante 95\% en la época 7. Las épocas 8, 9 y 10 mantienen rendimientos destacados, con la época 9 mostrando una precisión aún mayor que la 10 (ver figura \ref{fig:figuraEjeProMatrizConfusion}).
+Yolo genera imágenes y proporciona métricas clave como precisión, recall y curvas de aprendizaje por época. Al analizar las estadísticas por época, se observa una progresión significativa en la precisión a lo largo del entrenamiento. En las primeras épocas, la precisión fue baja, alcanzando solo el 14.1\% en la primera y el 2\% en la segunda. Sin embargo, a partir de la tercera época, se observa un aumento marcado, llegando al 66\% en la época 6 y alcanzando un impresionante 95\% en la época 7. Las épocas 8, 9 y 10 mantienen rendimientos destacados, con la época 9 mostrando una precisión aún mayor que la 10 (ver figura \ref{fig:figuraEjeProMatrizConfusion}). \newline
 
-El análisis detallado revela que, a pesar de obtener altos valores de recall, la precisión disminuyó en la época 10, este análisis subraya la importancia de equilibrar la precisión y el recall al ajustar el número de épocas. La representación gráfica destaca cómo el modelo evoluciona en cada época, evidenciando mejoras notables a partir de la quinta época. La tabla complementa visualmente la información proporcionando valores precisos de precisión y recall para cada época. En retrospectiva, la decisión de detener el entrenamiento en la época 9 podría haber resultado en un rendimiento óptimo, ya que se logró una alta precisión sin comprometer significativamente el recall. Este análisis proporciona valiosas percepciones para optimizar futuros entrenamientos del modelo Yolo.
+El análisis detallado revela que, a pesar de obtener altos valores de recall, la precisión disminuyó en la época 10, este análisis subraya la importancia de equilibrar la precisión y el recall al ajustar el número de épocas. La representación gráfica destaca cómo el modelo evoluciona en cada época, evidenciando mejoras notables a partir de la quinta época. La tabla de la figura \ref{fig:figuraEjeProMatrizConfusion} complementa visualmente la información proporcionando valores precisos de precisión y recall para cada época. En retrospectiva, la decisión de detener el entrenamiento en la época 9 podría haber resultado en un mejor rendimiento, ya que se logró una alta precisión sin comprometer significativamente el recall. Este análisis proporciona valiosas percepciones para optimizar futuros entrenamientos del modelo Yolo. \newline
 
-En los resultados proporcionados por el modelo, se presentan imágenes que fueron clasificadas como casos de plagas. Al analizar estas imágenes, es evidente que el modelo ha identificado correctamente la presencia de plagas, ya que estas son las mismas imágenes que proporcioné individualmente al algoritmo para su evaluación. En el conjunto de prueba generado, las representaciones visuales de plagas son claramente evidentes en las imágenes que se muestran en el lado derecho. Estas imágenes son el resultado de la aplicación del algoritmo, demostrando su capacidad para discernir y clasificar eficazmente las instancias de plagas en base a los patrones aprendidos durante el entrenamiento.
+En los resultados proporcionados por el modelo (ver figura \ref{fig:figuraVisPruebasYolo}), se presentan imágenes que fueron clasificadas como casos de plagas. Al analizar estas imágenes, es evidente que el modelo ha identificado correctamente la presencia de plagas, ya que estas son las mismas imágenes que proporcioné individualmente al algoritmo para su evaluación. En el conjunto de prueba generado, las representaciones visuales de plagas en las imágenes que se muestran en la figura \ref{fig:figuraVisPruebasYoloRes}. Estas imágenes son el resultado de la aplicación del algoritmo, demostrando su capacidad para discernir y clasificar eficazmente las instancias de plagas en base a los patrones aprendidos durante el entrenamiento.
 
 \newpage
 
 \begin{figure}[h]
 \centering
 \caption{Visualización de la evaluación realizada con Yolo V8}
-\includegraphics[width=1\textwidth]{resultados/visPruebasYolo.png}
-\caption*{\footnotesize Fuente: Elaboración Propia}
+\includegraphics[width=0.6\textwidth]{resultados/visPruebasYolo.png}
+\caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraVisPruebasYolo}
 \end{figure}
 
-Este conjunto de resultados subraya la eficacia del modelo Yolo en la tarea específica de identificación de plagas, respaldando la calidad de las predicciones al compararlas con la evaluación visual que se realizó de manera automática. La capacidad del algoritmo para generalizar y reconocer patrones de plagas en nuevas imágenes es un indicativo positivo de su rendimiento y validez en aplicaciones prácticas relacionadas con la detección y clasificación de problemas específicos, como la presencia de plagas en cultivos.
+\newpage
 
-Al evaluar el desempeño del algoritmo Yolo V8 en la validación de imágenes de plagas, se destaca la efectividad de la detección. En el conjunto de validación, el algoritmo demuestra su capacidad para identificar plagas en imágenes específicas sin conocer previamente la ubicación de los polígonos anotados. La separación del conjunto de datos en entrenamiento y prueba es esencial, y el conjunto de validación, con un 20\% de las imágenes, se utiliza para evaluar el rendimiento del modelo.
+\begin{figure}[h]
+	\centering
+	\caption{Resultado de la evaluación realizada con Yolo V8}
+	\includegraphics[width=0.6\textwidth]{resultados/visPruebasYoloRes.png}
+	\caption*{\footnotesize Fuente: Elaboración propia}
+	\label{fig:figuraVisPruebasYoloRes}
+\end{figure}
 
 \newpage
 
-Las imágenes seleccionadas para la validación no siguen un orden específico y son elegidas al azar por el algoritmo. Al analizar las imágenes detectadas, el algoritmo asigna porcentajes de confianza para cada región identificada como plaga, facilitando la interpretación de la certeza de las predicciones. Se observa que el algoritmo genera predicciones de plagas con confianza superior al 70\%.
+Estos resultados resaltan los aportes del modelo Yolo en la identificación de plagas, respaldando la calidad de las predicciones al compararlas con la evaluación visual que se realizó de manera automática. La capacidad del algoritmo para generalizar y reconocer patrones de plagas en nuevas imágenes es un indicativo positivo de su rendimiento y validez en aplicaciones prácticas relacionadas con la detección y clasificación de problemas específicos, como la presencia de plagas en cultivos. \newline
+
+Al evaluar el desempeño del algoritmo Yolo V8 en la validación de imágenes de plagas, se destaca la efectividad de la detección. En el conjunto de validación, el algoritmo demuestra su capacidad para identificar plagas en imágenes específicas sin conocer previamente la ubicación de los polígonos anotados. La separación del conjunto de datos en entrenamiento y prueba es esencial, y el conjunto de validación, con un 20\% de las imágenes, se utiliza para evaluar el rendimiento del modelo. \newline
+
+Las imágenes seleccionadas para la validación no siguen un orden específico y son elegidas al azar por el algoritmo. Al analizar las imágenes detectadas, el algoritmo asigna porcentajes de confianza para cada región identificada como plaga, facilitando la interpretación de la certeza de las predicciones. Se observa que el algoritmo genera predicciones de plagas con confianza superior al 70\%. \newline
 
 La potencial aplicación práctica del modelo se ilustra al considerar su capacidad para clasificar imágenes en tiempo real, incluso mediante el análisis de videos. Esta capacidad permite no solo la detección de plagas, sino también la visualización gráfica instantánea de las áreas afectadas. La versatilidad del modelo Yolo V8 corresponde al poder aplicarse en situaciones dinámicas y en tiempo real.
+
+\newpage
