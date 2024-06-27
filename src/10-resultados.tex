@@ -1,12 +1,12 @@
 \section{Resultados}
 
-\subsection{Técnicas de procesamiento de imágenes para extraer características relevantes y mejorar la capacidad del modelo de Machine Learning en el reconocimiento y detección de las plagas Stenoma catenifer y heilipus lauri en el cultivo de aguacate Hass a partir de imágenes capturadas en campo.}
+\subsection{Técnicas de procesamiento de imágenes para extraer características relevantes y mejorar la capacidad del modelo de Machine Learning en el reconocimiento y detección de las plagas \textit{Stenoma catenifer} y \textit{heilipus lauri} en el cultivo de aguacate Hass a partir de imágenes capturadas en campo.}
 
 \subsubsection{Exploración de datos}
 
 El análisis exploratorio de datos partió de las 744 fotografías del cultivo de aguacate Hass con las cuales se reveló información valiosa sobre la distribución y características de las imágenes. Al examinar la distribución, se observa dos parámetros en la información, el primero corresponde a las imágenes que no presentan el impacto de las plagas (50 imágenes) y el segundo las imágenes que evidencian el proceso de la plaga en el cultivo (694 imágenes). Esto sugiere la necesidad de técnicas de pre-procesamiento para normalizar la información antes de cualquier análisis.
 
-Por esta razón, se estableció dos carpetas de información donde una de ellas se consignan las fotografías que presentan las características de las plantas sana y en la otra carpeta se encuentran las fotografías que muestran las tipologías del impacto de las plagas.
+Por esta razón, se establecieron dos carpetas de información donde una de ellas se consignan las fotografías que presentan las características de las plantas sana y en la otra carpeta se encuentran las fotografías que muestran las tipologías del impacto de las plagas.
 
 En este sentido, se desarrollaron algoritmos de extracción de características, como por ejemplo el histograma de colores, descriptores de texturas y las características basadas en formas, con las cuales se representa la información relevante de las imágenes dentro del cultivo, para que estas características se conviertan en entradas de reconocimiento en el modelo de aprendizaje automático.
 
@@ -63,7 +63,7 @@ Todas las 744 imágenes presentaban un fondo que podría introducir ruido durant
 \begin{figure}[h]
 \centering
 \caption{Proceso de remoción de fondo de las imágenes}
-\includegraphics[width=8cm]{resultados/remFondo.png}
+\includegraphics[width=12cm]{resultados/remFondo.png}
 \caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraRemFondo}
 \end{figure} 
@@ -74,14 +74,14 @@ La efectividad de este código asegura que las imágenes estén listas para ser 
 
 En el procesamiento de la segmentación de imágenes como se viene señalando en los anteriores momentos, permite resaltar la zona en donde se encuentra las características propias de la plaga. El proceso tiene como fin facilitarle al algoritmo de Machine learning interpretar las imágenes. Este enfoque se integra en la fase de pre-procesamiento para resaltar la zona afectada por la plaga, simplificando la tarea del algoritmo y mejorando su capacidad de interpretación.
 
-A cada una de estas 694 imágenes que presentan afectaciones de la plaga se trazó un polígono para saber en dónde estaba ubicada la plaga, este polígono genera unas coordenadas que luego van a ser interpretadas por uno de los algoritmos usados para el proyecto.
-
 \newpage
+
+A cada una de estas 694 imágenes que presentan afectaciones de la plaga se trazó un polígono para saber en dónde estaba ubicada la plaga, este polígono genera unas coordenadas que luego van a ser interpretadas por uno de los algoritmos usados para el proyecto.
 
 \begin{figure}[h]
 \centering
 \caption{Proceso de segmentación de las imágenes}
-\includegraphics[width=0.7\textwidth]{resultados/proSeg.png}
+\includegraphics[width=0.9\textwidth]{resultados/proSeg.png}
 \caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraProSeg}
 \end{figure}
@@ -91,16 +91,16 @@ Posteriormente se utilizó la aplicación DataTorch para hacer el trazado de los
 \begin{figure}[h]
 \centering
 \caption{Proceso de segmentación de las imágenes con DataTorch}
-\includegraphics[width=0.7\textwidth]{resultados/proSeg2.png}
+\includegraphics[width=1\textwidth]{resultados/proSeg2.png}
 \caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraProSegDatatorch}
 \end{figure}
 
+\newpage
+
 \subsubsection{Conjunto de entrenamiento y prueba}
 
 El proceso de entrenamiento en Machine Learning implica enseñar a un modelo a reconocer patrones y tomar decisiones basadas en datos. Para lograr esto, es necesario dividir el conjunto de datos normalmente en dos partes: la primera, conocida como conjunto de entrenamiento, se utiliza para alimentar al modelo con ejemplos que le permitan aprender patrones y relaciones entre variables. Esta fase busca ajustar los parámetros del modelo para que pueda generalizar y hacer predicciones precisas sobre datos no vistos anteriormente.
-
-\newpage
 
 La segunda parte es el conjunto de validación, que actúa como una evaluación independiente del rendimiento del modelo. Al utilizar datos que el modelo no ha visto durante el entrenamiento, se puede evaluar su capacidad y prevenir problemas como el sobreajuste, donde el modelo memoriza los datos de entrenamiento en lugar de aprender patrones generales.
 
@@ -118,11 +118,11 @@ Esta división en conjuntos de entrenamiento y validación es crucial para garan
 
 Como para esta investigación se tiene un conjunto de datos moderado, es posible manejar un entrenamiento del de un 80/20; eso quiere decir que, del total de las imágenes 595 irán para el entrenamiento y 149 para validación, tanto la información con plaga como sin plaga, es decir se tiene toda la información conjunta.
 
+\newpage
+
 Cabe señalar que existen otros porcentajes para el conjunto de datos como el 70/30 refiriéndose a 70\% entrenamiento y 30\% de validación, pero estos porcentajes son más útiles en conjuntos de datos más pequeños.
 
-\subsection{Modelo de Machine Learning utilizando técnicas apropiadas de preprocesamiento y selección de características, así como algoritmos de aprendizaje supervisado o no supervisado, para lograr una detección de las plagas Stenoma catenifer y heilipus lauri en el cultivo de aguacate Hass}
-
-\newpage
+\subsection{Modelo de Machine Learning utilizando técnicas apropiadas de preprocesamiento y selección de características, así como algoritmos de aprendizaje supervisado o no supervisado, para lograr una detección de las plagas \textit{Stenoma catenifer} y \textit{heilipus lauri} en el cultivo de aguacate Hass}
 
 \subsubsection{Selección de algoritmos}
 
@@ -132,9 +132,9 @@ También, se seleccionó el algoritmo de Yolo V8, que sus siglas en ingles signi
 
 Estas redes neuronales convolucionales pueden aprender patrones y características complejas, permitiendo la identificación precisa de plagas en imágenes agrícolas. Además, el Deep Learning facilita la interpretación de las imágenes al automatizar la extracción de características, eliminando la necesidad de diseñar manualmente algoritmos específicos.
 
-Para \cite{schmidhuber2015deep}, la capacidad del Deep Learning para adaptarse a patrones variados en imágenes, aprende automáticamente, agrupan gran cantidad de información, predicen comportamiento, los cuales contribuyen significativamente a mejorar la eficiencia y precisión en la detección de plagas. Su habilidad para generalizar a partir de conjuntos de datos grandes y diversos lo convierte en una herramienta poderosa para interpretar imágenes, proporcionando una base sólida para aplicaciones prácticas en la identificación y monitoreo de plagas, lo que en última instancia beneficia la gestión y la seguridad del proceso del cultivo de aguacate Hass.
-
 \newpage
+
+Para \cite{schmidhuber2015deep}, la capacidad del Deep Learning para adaptarse a patrones variados en imágenes, aprende automáticamente, agrupan gran cantidad de información, predicen comportamiento, los cuales contribuyen significativamente a mejorar la eficiencia y precisión en la detección de plagas. Su habilidad para generalizar a partir de conjuntos de datos grandes y diversos lo convierte en una herramienta poderosa para interpretar imágenes, proporcionando una base sólida para aplicaciones prácticas en la identificación y monitoreo de plagas, lo que en última instancia beneficia la gestión y la seguridad del proceso del cultivo de aguacate Hass.
 
 \begin{figure}[h]
 \centering
@@ -190,8 +190,6 @@ En el desarrollo de los scripts para implementar el modelo de regresión logíst
     \item Se calcula el promedio de las sensibilidades (recall) obtenidas desde las matrices de confusión.
 \end{enumerate}
 
-\newpage
-
 Por otro lado, para el desarrollo de los scripts que implementan el modelo Yolo V8 se realizaron los siguientes pasos:
 
 \begin{enumerate}
@@ -207,9 +205,7 @@ Por otro lado, para el desarrollo de los scripts que implementan el modelo Yolo 
 \end{enumerate}
 
 El concepto de ``épocas'' se refiere a la cantidad de veces que todo el conjunto de datos se ha pasado hacia adelante y hacia atrás a través de la red neuronal durante el proceso de entrenamiento. Cada época representa una iteración completa a través de todo el conjunto de datos.
-Manejar múltiples épocas durante el entrenamiento puede tener varios beneficios:
-
-\newpage
+Manejar múltiples épocas durante el entrenamiento puede tener varios beneficios: \newline
 
 \textbf{Aprendizaje más profundo:}
 
@@ -234,7 +230,7 @@ Manejar 10 épocas podría ser mejor que manejar pocas épocas, esto puede depen
 \begin{figure}[h]
 \centering
 \caption{Código convención del modelo Yolo}
-\includegraphics[width=0.2\textwidth]{resultados/convencionYolo.png}
+\includegraphics[width=0.3\textwidth]{resultados/convencionYolo.png}
 \caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraConvencionYolo}
 \end{figure}
@@ -242,7 +238,7 @@ Manejar 10 épocas podría ser mejor que manejar pocas épocas, esto puede depen
 \begin{figure}[h]
 \centering
 \caption{Código transformación de formato Coco a formato Yolo}
-\includegraphics[width=0.8\textwidth]{resultados/cocoAYolo.png}
+\includegraphics[width=0.9\textwidth]{resultados/cocoAYolo.png}
 \caption*{\footnotesize Fuente: Elaboración propia}
 \label{fig:figuraCocoAYolo}
 \end{figure}

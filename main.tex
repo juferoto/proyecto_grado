@@ -35,6 +35,7 @@
 \usepackage{todonotes}
 \usepackage{ulem}
 \usepackage{xcolor,colortbl}
+\usepackage{subcaption}
 
 \onehalfspacing
 \setcounter{secnumdepth}{5}
@@ -76,11 +77,16 @@
 %%%%%%%%%%%%%%%%%
 % Indices y tablas
 %%%%%%%%%%%%%%%%%
-\pagenumbering{arabic}
+\thispagestyle{empty}
 \tableofcontents
+\thispagestyle{empty}
+\newpage
+\thispagestyle{empty}
 \listoffigures
+\thispagestyle{empty}
 \listoftables
 \newpage
+\pagenumbering{arabic}
 
 %%%%%%%%%%%%%%%%%
 % Introducción

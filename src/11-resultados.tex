@@ -1,5 +1,5 @@
 
-\subsection{Metodología MLOps permitiendo la integración, automatización y monitoreo del modelo de Machine Learning diseñado para el reconocimiento y control de las plagas Stenoma catenifer y heilipus lauri en el cultivo de aguacate Hass}
+\subsection{Metodología MLOps permitiendo la integración, automatización y monitoreo del modelo de Machine Learning diseñado para el reconocimiento y control de las plagas \textit{Stenoma catenifer} y \textit{heilipus lauri} en el cultivo de aguacate Hass}
 
 \subsubsection{Creación del flujo de trabajo con MLOps}
 
@@ -8,22 +8,31 @@ Dentro del flujo de trabajo con MLOps que incluya la integración continua, entr
 \begin{longtable}{|p{2cm}|p{3cm}|p{5cm}|p{5cm}|}
 
 \caption{Flujo de trabajo con MLOps}\\
+\label{tab:tabFlujoTrabajo}
+\textbf{Nivel} & \textbf{Descripción} & \textbf{Características} & \textbf{Tecnología} \\
+\hline
+\endfirsthead
+	\caption[]{Flujo de trabajo con MLOps}\\
+	\textbf{Nivel} & \textbf{Descripción} & \textbf{Características} & \textbf{Tecnología} \\
+	\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+    0 & Sin MLOps & \begin{itemize}\item Difícil gestionar el ciclo de vida completo del modelo de aprendizaje automático. \item Los equipos son dispares y las liberaciones son difíciles. \item La mayoría de los sistemas existen como ``cajas negras'', poca retroalimentación durante o después de la implementación.\end{itemize} & \begin{itemize}\item Construcciones e implementaciones manuales. \item Prueba manual de modelo y aplicación. \item Sin seguimiento centralizado del rendimiento del modelo. \item El entrenamiento del modelo es manual.\end{itemize} \\
     \hline
-    \textbf{Nivel} & \textbf{Descripción} & \textbf{Características} & \textbf{Tecnología} \\
+    1 & DevOps pero sin MLOps & \begin{itemize}\item Los despliegues son menos difíciles que el nivel 0, pero dependen del equipo de datos para cada modelo nuevo. \item Comentarios aún limitados sobre qué tan bien se desempeña un modelo en producción. \item Difícil rastrear/reproducir resultados.\end{itemize} & \begin{itemize}\item Construcciones automatizadas. \item Pruebas automatizadas para el código de la aplicación.\end{itemize} \\
     \hline
-    \endhead
-        0 & Sin MLOps & \begin{itemize}\item Difícil gestionar el ciclo de vida completo del modelo de aprendizaje automático. \item Los equipos son dispares y las liberaciones son difíciles. \item La mayoría de los sistemas existen como ``cajas negras'', poca retroalimentación durante o después de la implementación.\end{itemize} & \begin{itemize}\item Construcciones e implementaciones manuales. \item Prueba manual de modelo y aplicación. \item Sin seguimiento centralizado del rendimiento del modelo. \item El entrenamiento del modelo es manual.\end{itemize} \\
-        \hline
-        1 & DevOps pero sin MLOps & \begin{itemize}\item Los despliegues son menos difíciles que el nivel 0, pero dependen del equipo de datos para cada modelo nuevo. \item Comentarios aún limitados sobre qué tan bien se desempeña un modelo en producción. \item Difícil rastrear/reproducir resultados.\end{itemize} & \begin{itemize}\item Construcciones automatizadas. \item Pruebas automatizadas para el código de la aplicación.\end{itemize} \\
-        \hline
-        2 & Entrenamiento automatizado & \begin{itemize}\item El ambiente de entrenamiento está totalmente gestionado y rastreable. \item Modelo fácil de reproducir. \item Los despliegues son manuales, pero de baja fricción.\end{itemize} & \begin{itemize}\item Entrenamiento de modelos automatizado. \item Seguimiento centralizado del rendimiento del entrenamiento del modelo. \item Gestión de modelos.\end{itemize} \\
-        \hline
-        3 & Implementación automatizada del modelo & \begin{itemize}\item Los despliegues son de baja fricción y automáticos. \item Trazabilidad completa desde la implementación hasta los datos originales. \item Todo el entorno gestionado: entrenamiento - prueba - producción\end{itemize} & \begin{itemize}\item Pruebas automatizadas para todo el código. \item Seguimiento centralizado del rendimiento del entrenamiento del modelo.\end{itemize} \\
-        \hline
-        4 & Operaciones automatizadas completas de MLOps & \begin{itemize}\item Sistema completo automatizado y fácilmente monitoreado. \item Los sistemas de producción están proporcionando información sobre cómo mejorar y, en algunos casos, mejorar automáticamente con nuevos modelos. \item Acercándose a un sistema sin tiempo de inactividad.\end{itemize} & \begin{itemize}\item Entrenamiento y pruebas de modelos automatizados. \item Métricas detalladas y centralizadas del modelo implementado.\end{itemize} \\
+    2 & Entrenamiento automatizado & \begin{itemize}\item El ambiente de entrenamiento está totalmente gestionado y rastreable. \item Modelo fácil de reproducir. \item Los despliegues son manuales, pero de baja fricción.\end{itemize} & \begin{itemize}\item Entrenamiento de modelos automatizado. \item Seguimiento centralizado del rendimiento del entrenamiento del modelo. \item Gestión de modelos.\end{itemize} \\
     \hline
-    \caption*{\footnotesize Fuente: \cite{microsoft2023}}
-    \label{tab:tabFlujoTrabajo}
+    3 & Implementación automatizada del modelo & \begin{itemize}\item Los despliegues son de baja fricción y automáticos. \item Trazabilidad completa desde la implementación hasta los datos originales. \item Todo el entorno gestionado: entrenamiento - prueba - producción\end{itemize} & \begin{itemize}\item Pruebas automatizadas para todo el código. \item Seguimiento centralizado del rendimiento del entrenamiento del modelo.\end{itemize} \\
+    \hline
+    4 & Operaciones automatizadas completas de MLOps & \begin{itemize}\item Sistema completo automatizado y fácilmente monitoreado. \item Los sistemas de producción están proporcionando información sobre cómo mejorar y, en algunos casos, mejorar automáticamente con nuevos modelos. \item Acercándose a un sistema sin tiempo de inactividad.\end{itemize} & \begin{itemize}\item Entrenamiento y pruebas de modelos automatizados. \item Métricas detalladas y centralizadas del modelo implementado.\end{itemize} \\
+\hline
+\caption*{\footnotesize Fuente: \cite{microsoft2023}}
 \end{longtable}
 
 \newpage
@@ -91,11 +100,20 @@ Las pruebas se realizan al modelo, siempre y cuando este no sea demasiado comple
 En el contexto de la reproducibilidad, se refiere a la capacidad de tener los datos en un punto específico, lo que significa que se puede rastrear qué datos se utilizaron exactamente para entrenar un modelo en particular. La reproducibilidad es esencial para replicar resultados en diferentes momentos en el tiempo. Este proceso se ve facilitado mediante una documentación que ayuda a comprender las acciones realizadas, especialmente en relación con el código de la solución implementada. La documentación proporciona la transparencia necesaria para entender el enfoque adoptado y los resultados obtenidos en cada fase del proceso.
 
 \begin{longtable}{|p{3cm}|p{5cm}|p{6cm}|}
-\caption{Flujo de trabajo con MLOps}\\
+\caption{Elementos de trabajo con MLOps}\\
+    \textbf{Elementos} & \textbf{Características} & \textbf{Acciones} \\
     \hline
+    \endfirsthead
+    \caption[]{Elementos de trabajo con MLOps}\\
     \textbf{Elementos} & \textbf{Características} & \textbf{Acciones} \\
     \hline
     \endhead
+    
+    \hline
+    \endfoot
+    
+    \hline
+    \endlastfoot
         Análisis de datos & El análisis de datos se refiere al proceso de inspeccionar, limpiar, transformar y modelar datos con el objetivo de descubrir información útil, llegar a conclusiones y respaldar la toma de decisiones. & Durante esta etapa, se aborda la tarea de comprender la naturaleza de los datos, especialmente en el contexto de la identificación de plagas. Se busca discernir la presencia o ausencia de plagas, examinando la estructura y características de los datos. Se destacan acciones específicas, como la identificación de dimensiones desiguales en los datos, donde algunas muestras presentan mayor cantidad de píxeles en el ancho que en la altura. Ante esta diversidad, se afronta el desafío de establecer uniformidad en las dimensiones, asegurando coherencia en el conjunto de datos. \\
         \hline
         Feature Store (almacén de funciones) & Se almacenan las transformaciones que se le han aplicado a los datos, para después entrenar los modelos. & En el modelo de la regresión logística se remueve el fondo de las imágenes y después se redimensionan a un valor indicado de 640 x 640 pixeles. \\
